@@ -1,0 +1,68 @@
+version: '3.5'
+
+networks:
+  traefik:
+    external:
+      name: ${PROXY_NETWORK_NAME}
+  mailu:
+    external:
+      name: mailu_default
+  base:
+    driver: ${NETWORKS_DRIVER}
+    name: ${NETWORK_NAME}
+
+services:
+  backend:
+    build:
+      context: ./backend
+      args:
+        - UID=${BACKEND_UID}
+        - GID=${BACKEND_GID}
+    ports:
+      - "${BIND_ADDRESS}:1234:8080"
+    volumes:
+      - ../src:/var/www/html
+    networks:
+      - base
+      - traefik
+      - mailu
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=${PROXY_NETWORK_NAME}"
+
+      - "traefik.http.routers.backend.entrypoints=http"
+      - "traefik.http.routers.backend.rule=Host(`${DOMAIN}`, `www.${DOMAIN}`)"
+      - "traefik.http.routers.backend.middlewares=https-redirect@file"
+
+      - "traefik.http.routers.backend-secure.service=backend-secure"
+      - "traefik.http.routers.backend-secure.rule=Host(`${DOMAIN}`, `www.${DOMAIN}`)"
+      - "traefik.http.routers.backend-secure.tls=true"
+      - "traefik.http.routers.backend-secure.tls.certresolver=dns"
+      - "traefik.http.routers.backend-secure.entrypoints=https"
+      # - "traefik.http.routers.backend-secure.middlewares=www-redirect@file"
+      - "traefik.http.services.backend-secure.loadbalancer.server.port=8080"
+
+### PostgreSQL ###########################################
+  db:
+    build:
+      context: ./postgres
+    volumes:
+      - ${DATA_PATH_HOST}/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - "${BIND_ADDRESS}:${POSTGRES_PORT}:5432"
+    networks:
+      - base
+
+### Redis ################################################
+  redis:
+    build:
+      context: ./redis
+    volumes:
+      - ${DATA_PATH_HOST}/redis:/data
+    networks:
+      - base
+      

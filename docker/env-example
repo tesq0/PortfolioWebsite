@@ -1,0 +1,53 @@
+# An additional network interface address to bind the backend, load-balancer and postgres services to for the administrator to be able to access them
+# In production use an address of a network only you have access to such as a vpn network or set it to 127.0.0.1 otherwise
+BIND_ADDRESS=127.0.0.1
+
+# Choose storage path on your machine where to store some of the apps's data
+DATA_PATH_HOST=~/.mikus-blog/data
+
+### Drivers ################################################
+
+# All volumes driver
+VOLUMES_DRIVER=local
+
+# All Networks driver
+NETWORKS_DRIVER=bridge
+
+NETWORK_NAME=mikus-blog
+
+### Docker compose files ##################################
+
+# Select which docker-compose files to include. If using docker-sync append `:docker-compose.sync.yml` at the end
+COMPOSE_FILE=docker-compose.yml
+
+# Change the separator from : to ; on Windows
+COMPOSE_PATH_SEPARATOR=:
+
+# Define the prefix of container names. This is useful if you have multiple projects that use laradock to have seperate containers per project.
+COMPOSE_PROJECT_NAME=mikus-blog
+
+### REDIS #################################################
+
+REDIS_PORT=6379
+
+### POSTGRES ##############################################
+
+POSTGRES_DB=postgres
+POSTGRES_USER=admin
+POSTGRES_PASSWORD=secret
+POSTGRES_PORT=5432
+
+### LARAVEL ECHO SERVER ###################################
+
+LARAVEL_ECHO_SERVER_PORT=6001
+
+## PERMISSIONS
+
+BACKEND_UID=1000
+BACKEND_GID=1000
+
+
+## PROD
+
+PROXY_NETWORK_NAME=traefik
+DOMAIN=mikolajgalkowski.xyz

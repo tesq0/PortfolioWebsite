@@ -1,0 +1,55 @@
+version: '3.5'
+
+networks:
+  base:
+    driver: ${NETWORKS_DRIVER}
+    name: ${NETWORK_NAME}
+
+services:
+  backend:
+    build:
+      context: ./backend
+      args:
+        - UID=${BACKEND_UID}
+        - GID=${BACKEND_GID}
+    ports:
+      # - "${BIND_ADDRESS}:8080:8080"
+      - "8080:8080"
+    volumes:
+      - ../src:/var/www/html
+    networks:
+      - base
+
+### PostgreSQL ###########################################
+  db:
+    build:
+      context: ./postgres
+    volumes:
+      - ${DATA_PATH_HOST}/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - "${BIND_ADDRESS}:${POSTGRES_PORT}:5432"
+    networks:
+      - base
+
+### Redis ################################################
+  redis:
+    build:
+      context: ./redis
+    volumes:
+      - ${DATA_PATH_HOST}/redis:/data
+    networks:
+      - base
+
+### Mailhog ################################################
+  mailhog:
+    build: ./mailhog
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+    networks:
+      - base
+  
