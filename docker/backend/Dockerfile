@@ -48,6 +48,11 @@ RUN apk add --update --no-cache g++ imagemagick imagemagick-dev libtool  \
 # BCMATH
 RUN	docker-php-ext-install bcmath
 
+# GD
+RUN apk add --update --no-cache libpng-dev && \
+	docker-php-ext-install gd
+
+
 # Clean up
 RUN rm /var/cache/apk/* \
     && mkdir -p /var/www
