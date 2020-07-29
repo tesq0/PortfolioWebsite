@@ -21,6 +21,11 @@ RUN apk --update add wget \
 RUN docker-php-ext-install mbstring pdo tokenizer xml pcntl
 RUN pecl channel-update pecl.php.net && pecl install mcrypt
 
+# ZIP
+RUN	apk --update add libzip-dev && \
+	docker-php-ext-install zip && \
+	docker-php-ext-configure zip
+
 # PSQL
 RUN	apk --update add postgresql-dev \
 	&& docker-php-ext-install pdo_pgsql
