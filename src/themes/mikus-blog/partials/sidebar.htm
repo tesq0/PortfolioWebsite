@@ -1,0 +1,72 @@
+<div :class="sidebarOpen ? 'block' : 'hidden'" @click="sidebarOpen = false" class="fixed z-20 inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
+
+<div style="min-width: 250px" :class="sidebarOpen ? 'translate-x-0 ease-out duration-300' : '-translate-x-full ease-in'" class="fixed z-30 inset-y-0 left-0 w-64 transition transform bg-white shadow overflow-y-auto lg:translate-x-0 lg:static lg:inset-0">
+	<div class="flex items-center justify-center mt-8">
+		<div class="flex flex-col items-center">
+			<a href="{{ 'home'|page }}">
+				<img class="rounded-full" src="{{ this.theme.avatar }}" alt="{{ this.theme.name }}" width="120" height="120">
+			</a>
+		</div>
+	</div>
+
+	<div class="mt-4 flex flex-col justify-center items-center text-center">
+
+		<h2>{{ this.theme.name }}</h2>
+
+		<ul class="">
+
+			{% for btn in this.theme.social_buttons %}
+
+			<li>
+				<a class="fa-{{ btn.fa }}" href="{{ btn.href }}" style="background-color: {{ btn.color }};"></a>
+			</li>
+
+			{% endfor %}
+
+		</ul>
+
+		<div class="mt-2 px-4 ">
+
+			<div>
+				<p class="text-gray-600">{{ this.theme.whoami }}</p>
+			</div>
+
+			<hr class="my-2">
+
+			<div class="mt-4">
+				<h3>Categories</h3>
+
+				<ul class="mt-2">
+					{% for category in blogCategories.categories %}
+
+					<li><a href="{{ category.url }}"><span>{{ category.post_count }}</span> {{ category.name }}</a></li>
+
+					{% endfor %}
+				</ul>
+			</div>
+
+			<hr class="my-2">
+
+			<div class="mt-4">
+				<h3>Recent Posts</h3>
+
+				<ul class="text-gray-600 mt-2">
+
+					{% for post in recentBlogPosts.posts %}
+
+					<li>
+						<h4><a href="{{ post.url }}">{{ post.title }}</a></h4>
+						{{ post.published_at|date('M d, Y') }}
+					</li>
+
+					{% endfor %}
+
+				</ul>
+			</div>
+
+		</div>
+	</div>
+
+	<nav class="mt-10">
+	</nav>
+</div>

@@ -1,0 +1,29 @@
+<section class="">
+
+  <h1 class="">{{ this.page.title }}</h1>
+
+  {% partial 'blogPostsListRaw' %}
+
+  {% set posts = blogPosts.posts %}
+
+  {% if posts.lastPage > 1 %}
+
+    <nav class="flex justify-around" role="navigation">
+
+      {% if posts.currentPage > 1 %}
+        <a class="" href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage-1) }) }}" rel="prev">Previous page</a>
+      {% endif %}
+
+      {% for page in 1..posts.lastPage %}
+        <a class="{{ posts.currentPage == page ? 'border-2' }}" href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+      {% endfor %}
+
+      {% if posts.lastPage > posts.currentPage %}
+        <a class="" href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage+1) }) }}" rel="next">Next page</a>
+      {% endif %}
+
+    </nav>
+
+  {% endif %}
+
+</section>

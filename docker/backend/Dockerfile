@@ -8,6 +8,7 @@ RUN apk --update add wget \
 	openssh \
   build-base \
 	nginx \
+	python2 \
   libmcrypt-dev \
   oniguruma-dev \
   libxml2-dev \

@@ -1,0 +1,76 @@
+description = "Default layout"
+
+[blogPosts recentBlogPosts]
+pageNumber = 1
+postsPerPage = 5
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog/tag"
+postPage = "blog/post"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "blog/category"
+
+==
+<!DOCTYPE html>
+<html class="h-full" lang="{{ this.theme.meta_lang }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    {% set title = this.page.id == 'home' ? this.theme.name : this.page.title ~ ' - ' ~ this.theme.name %}
+    <title>{{ title }}</title>
+    <meta name="title" content="{{ title }}">
+
+    {% set description = this.page.description ?: this.theme.whoami %}
+    <meta name="description" content="{{ description }}">
+    <meta property="og:title" content="{{ this.page.title }}">
+    <meta property="og:site_name" content="{{ this.theme.name }}">
+    <meta property="og:url" content="{{ ''|page }}">
+    <meta property="og:description" content="{{ description }}">
+
+    {% if metaImage %}
+      <meta property="og:image" content="{{ metaImage }}">
+      <link rel="image_src" href="{{ metaImage }}">
+    {% endif %}
+
+    <meta name="canonical" content="{{ ''|page }}">
+
+    {% if this.theme.meta_author %}
+      <meta name="author" content="{{ this.theme.meta_author }}">
+    {% endif %}
+
+    {% if this.theme.meta_icon %}
+			<link rel="icon" type="image/png" sizes="16x16" href="{{this.theme.meta_icon}}" />
+		{% endif %}
+
+		<link rel="stylesheet" href="{{ 'assets/public/css/app.css'|theme }}">
+    {% styles %}
+  </head>
+	<body class="h-full overflow-hidden bg-gray-200" x-data="{ sidebarOpen: false }">
+		
+		<div style="max-width: 990px" class="bg-white flex w-full h-full mx-auto">
+
+			{% partial 'sidebar' %}
+
+			<div class="flex-1 overflow-y-auto shadow">
+				
+				{% partial 'header' %}
+				
+				<div class="p-4">
+
+					{% page %}
+
+				</div>
+
+			</div>
+
+		</div>
+
+    <script src="{{ 'assets/public/js/app.js'|theme }}"></script>
+    {{ scripts }}
+
+  </body>
+</html>
