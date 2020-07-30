@@ -23,15 +23,13 @@ module.exports = {
 	},
   purge: {
     content: [
-      './app/**/*.php',
-      './resources/**/*.html',
-      './resources/**/*.js',
-      './resources/**/*.jsx',
-      './resources/**/*.ts',
-      './resources/**/*.tsx',
-      './resources/**/*.php',
-      './resources/**/*.vue',
-      './resources/**/*.twig',
+      './**/*.htm',
+      './assets/**/*.js',
+      './assets/**/*.jsx',
+      './assets/**/*.ts',
+      './assets/**/*.tsx',
+      './assets/**/*.vue',
+      './assets/**/*.twig',
     ],
     options: {
       defaultExtractor: (content) => content.match(/[\w-/.:]+(?<!:)/g) || [],
