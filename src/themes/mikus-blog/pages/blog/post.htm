@@ -27,35 +27,41 @@ function onEnd()
 ==
 {% set post = blogPost.post %}
 
-<article class="blog-post" itemscope itemtype="https://schema.org/BlogPosting">
+<article class="bg-white shadow p-4" itemscope itemtype="https://schema.org/BlogPosting">
 
-  <header class="blog-header">
+  <header class="">
 
-    <h1 class="content-heading" itemprop="headline">{{ post.title }}</h1>
+    <h1 class="" itemprop="headline">{{ post.title }}</h1>
 
-    {% for image in post.featured_images %}
+		<div class="w-full">
+			{% if post.featured_images.count >= 1 %}
+			<div class="flex justify-start items-center w-full mt-4">
+				{% for image in post.featured_images %}
 
-      <img class="blog-featured-image" src="{{ image.path|app }}" alt="{{ image.description }}" itemprop="image">
+				<img class="" src="{{ image.path|app }}" alt="{{ image.description }}" itemprop="image">
 
-    {% endfor %}
+				{% endfor %}
+			</div>
+			{% endif %}
+			
+			{% if post.excerpt %}
+			<p class="mt-4 text-gray-500" itemprop="description">{{ post.excerpt }}</p>
+			{% endif %}
 
-    {% if post.excerpt %}
-
-      <p class="lead blog-excerpt" itemprop="description">{{ post.excerpt }}</p>
-
-    {% endif %}
-
+		</div>
+		
+		
   </header>
 
-  <div class="markdown-body" itemprop="articleBody">
+  <div class="my-4" itemprop="articleBody">
     {{ post.content_html|raw }}
   </div>
 
-  <footer class="blog-footer">
+  <footer class="">
 
     <hr>
 
-    <p class="info">
+    <p class="">
         Posted
         {% if post.categories.count %} in
             <span itemprop="keywords">
@@ -65,12 +71,12 @@ function onEnd()
             </span>
         {% endif %}
         on <time itemprop="datePublished" datetime="{{ post.published_at|date('Y-m-d') }}">{{ post.published_at|date('M d, Y') }}</time>
-        by <span itemprop="author">{{ post.user.full_name }}</span>
+						<!-- by <span itemprop="author">{{ post.user.full_name }}</span> -->
     </p>
 
-    <div class="btn-share-group">
+    <div class="">
 
-      <span class="btn-share btn-share-label">Share this post:</span>
+      <span class="">Share this post:</span>
 
       {% set url = ''|page|url_encode %}
       {% set title = post.title|url_encode %}
@@ -87,7 +93,7 @@ function onEnd()
 
       {% for n in social %}
 
-        <a class="btn-share btn-share-{{ n[0] }}" href="{{ n[2]|raw }}" target="_blank" title="Share on {{ n[1] }}" aria-label="Share on {{ n[1] }}" role="button"></a>
+        <a class="w-12" href="{{ n[2]|raw }}" target="_blank" title="Share on {{ n[1] }}" aria-label="Share on {{ n[1] }}" role="button"></a>
 
       {% endfor %}
 

@@ -11,7 +11,7 @@ postPage = "blog/post"
 [blogCategories]
 slug = "{{ :slug }}"
 displayEmpty = 0
-categoryPage = "blog/category"
+categoryPage = "blog/tag"
 
 ==
 <!DOCTYPE html>
@@ -49,13 +49,13 @@ categoryPage = "blog/category"
 		<link rel="stylesheet" href="{{ 'assets/public/css/app.css'|theme }}">
     {% styles %}
   </head>
-	<body class="h-full overflow-hidden bg-gray-200" x-data="{ sidebarOpen: false }">
+	<body class="h-full overflow-y-auto bg-gray-200" x-data="{ sidebarOpen: false }">
 		
-		<div style="max-width: 990px" class="bg-white flex w-full h-full mx-auto">
+		<div style="max-width: 990px" class="flex w-full h-full mx-auto">
 
 			{% partial 'sidebar' %}
 
-			<div class="flex-1 overflow-y-auto shadow">
+			<div class="flex-1 lg:ml-64">
 				
 				{% partial 'header' %}
 				

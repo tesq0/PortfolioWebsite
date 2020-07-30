@@ -1,6 +1,6 @@
 {% for post in blogPosts.posts %}
 
-  <article class="shadow p-4" itemscope itemtype="http://schema.org/BlogPosting">
+  <article class="shadow bg-white my-4 p-4" itemscope itemtype="http://schema.org/BlogPosting">
 
     <h2 class="font-medium">
       <a href="{{ post.url }}" itemprop="url">
@@ -8,22 +8,24 @@
       </a>
     </h2>
 
-		{% if post.featured_images.count >= 1 %}
-		<div class="featured-images text-center">
-			{% for image in post.featured_images %}
-			<p>
-				<img
-					data-src="{{ image.filename }}"
-										src="{{ image.path }}"
-										alt="{{ image.description }}"
-										style="max-width: 100%" />
-			</p>
-			{% endfor %}
+		<div class="p-2">
+			{% if post.featured_images.count >= 1 %}
+			<div class="featured-images text-center mb-4">
+				{% for image in post.featured_images %}
+				<p>
+					<img
+						data-src="{{ image.filename }}"
+											src="{{ image.path }}"
+											alt="{{ image.description }}"
+											style="max-width: 100%" />
+				</p>
+				{% endfor %}
+			</div>
+			{% endif %}
+			
+			<p class="text-gray-500" itemprop="description">{{ post.excerpt }}</p>
 		</div>
-		{% endif %}
 		
-		<p class="" itemprop="description">{{ post.excerpt }}</p>
-
     <p class="">
       Posted
       {% if post.categories.count %} in
