@@ -24,6 +24,10 @@ form:
                 default: https://www.gravatar.com/avatar/default?s=120
                 tab: General
 
+            contact:
+                label: Contact email
+                tab: General
+
             whoami:
                 label: Blog Description
                 comment: The text under "Who am I?". Keep it short.
