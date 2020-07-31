@@ -53,7 +53,11 @@ function onEnd()
 		
   </header>
 
-  <div class="my-4" itemprop="articleBody">
+	{% if post.excerpt or post.featured_images.count >= 1 %}
+	<hr class="my-4">
+	{% endif %}
+
+	<div class="my-4" itemprop="articleBody">
     {{ post.content_html|raw }}
   </div>
 
@@ -61,7 +65,7 @@ function onEnd()
 
     <hr>
 
-    <p class="">
+    <p class="mt-4">
         Posted
         {% if post.categories.count %} in
             <span itemprop="keywords">
@@ -82,18 +86,15 @@ function onEnd()
       {% set title = post.title|url_encode %}
 
       {% set social = [
-        ['facebook',    'Facebook',    'https://www.facebook.com/sharer/sharer.php?u=' ~ url],
-        ['gplus',       'Google+',     'https://plus.google.com/share?url=' ~ url],
-        ['twitter',     'Twitter',     'https://twitter.com/home?status=' ~ url],
-        ['reddit',      'Reddit',      'https://reddit.com/submit?url=' ~ url ~ '&amp;title=' ~ title],
-        ['tumblr',      'Tumblr',      'https://tumblr.com/widgets/share/tool?canonicalUrl=' ~ url],
-        ['stumbleupon', 'StumbleUpon', 'https://www.stumbleupon.com/submit?url=' ~ url ~ '&amp;title=' ~ title],
-        ['linkedin',    'LinkedIn',    'https://www.linkedin.com/shareArticle?url=' ~ url ~ '&amp;mini=true&amp;title=' ~ title ~ '&amp;summary=' ~ post.excerpt|url_encode ~ '&amp;source=' ~ url],
+        [ 'facebook',    'Facebook',    'https://www.facebook.com/sharer/sharer.php?u=' ~ url],
+        [ 'twitter',     'Twitter',     'https://twitter.com/home?status=' ~ url],
+        [ 'reddit',      'Reddit',      'https://reddit.com/submit?url=' ~ url ~ '&amp;title=' ~ title],
+        [ 'linkedin',    'LinkedIn',    'https://www.linkedin.com/shareArticle?url=' ~ url ~ '&amp;mini=true&amp;title=' ~ title ~ '&amp;summary=' ~ post.excerpt|url_encode ~ '&amp;source=' ~ url],
       ] %}
 
       {% for n in social %}
 
-        <a class="w-12" href="{{ n[2]|raw }}" target="_blank" title="Share on {{ n[1] }}" aria-label="Share on {{ n[1] }}" role="button"></a>
+        <a class="no-underline text-2xl inline-block text-center w-4 h-4 text-{{ n[0] }} fa-{{ n[0] }}" href="{{ n[2]|raw }}" target="_blank" title="Share on {{ n[1] }}" aria-label="Share on {{ n[1] }}" role="button"></a>
 
       {% endfor %}
 

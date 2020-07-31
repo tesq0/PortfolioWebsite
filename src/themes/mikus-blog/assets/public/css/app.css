@@ -1006,6 +1006,32 @@ a :hover {
   border-color: #63b3ed;
 }
 
+.pagination {
+  display: flex;
+}
+
+.pagination li > a, .pagination li > span {
+  text-align: center;
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  border-width: 1px;
+  padding-top: 1px;
+}
+
+.pagination li:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.pagination li.active > span {
+  --bg-opacity: 1;
+  background-color: #4299e1;
+  background-color: rgba(66, 153, 225, var(--bg-opacity));
+  --text-opacity: 1;
+  color: #fff;
+  color: rgba(255, 255, 255, var(--text-opacity));
+}
+
 /**
  * Here you would add any of your custom component classes; stuff that you'd
  * want loaded *before* the utilities so that the utilities could still
@@ -2102,6 +2128,34 @@ a :hover {
   border-color: rgba(112, 36, 89, var(--divide-opacity));
 }
 
+.divide-facebook > :not(template) ~ :not(template) {
+  --divide-opacity: 1;
+  border-color: #3b5998;
+  border-color: rgba(59, 89, 152, var(--divide-opacity));
+}
+
+.divide-reddit > :not(template) ~ :not(template) {
+  --divide-opacity: 1;
+  border-color: #FF5700;
+  border-color: rgba(255, 87, 0, var(--divide-opacity));
+}
+
+.divide-twitter > :not(template) ~ :not(template) {
+  border-color: #1da1f;
+}
+
+.divide-linkedin > :not(template) ~ :not(template) {
+  --divide-opacity: 1;
+  border-color: #0e76a8;
+  border-color: rgba(14, 118, 168, var(--divide-opacity));
+}
+
+.divide-youtube > :not(template) ~ :not(template) {
+  --divide-opacity: 1;
+  border-color: #c4302b;
+  border-color: rgba(196, 48, 43, var(--divide-opacity));
+}
+
 .divide-primary-500 > :not(template) ~ :not(template) {
   --divide-opacity: 1;
   border-color: #FF6B1A;
@@ -2770,6 +2824,34 @@ a :hover {
   background-color: rgba(112, 36, 89, var(--bg-opacity));
 }
 
+.bg-facebook {
+  --bg-opacity: 1;
+  background-color: #3b5998;
+  background-color: rgba(59, 89, 152, var(--bg-opacity));
+}
+
+.bg-reddit {
+  --bg-opacity: 1;
+  background-color: #FF5700;
+  background-color: rgba(255, 87, 0, var(--bg-opacity));
+}
+
+.bg-twitter {
+  background-color: #1da1f;
+}
+
+.bg-linkedin {
+  --bg-opacity: 1;
+  background-color: #0e76a8;
+  background-color: rgba(14, 118, 168, var(--bg-opacity));
+}
+
+.bg-youtube {
+  --bg-opacity: 1;
+  background-color: #c4302b;
+  background-color: rgba(196, 48, 43, var(--bg-opacity));
+}
+
 .bg-primary-500 {
   --bg-opacity: 1;
   background-color: #FF6B1A;
@@ -3354,6 +3436,34 @@ a :hover {
   background-color: rgba(112, 36, 89, var(--bg-opacity));
 }
 
+.hover\:bg-facebook:hover {
+  --bg-opacity: 1;
+  background-color: #3b5998;
+  background-color: rgba(59, 89, 152, var(--bg-opacity));
+}
+
+.hover\:bg-reddit:hover {
+  --bg-opacity: 1;
+  background-color: #FF5700;
+  background-color: rgba(255, 87, 0, var(--bg-opacity));
+}
+
+.hover\:bg-twitter:hover {
+  background-color: #1da1f;
+}
+
+.hover\:bg-linkedin:hover {
+  --bg-opacity: 1;
+  background-color: #0e76a8;
+  background-color: rgba(14, 118, 168, var(--bg-opacity));
+}
+
+.hover\:bg-youtube:hover {
+  --bg-opacity: 1;
+  background-color: #c4302b;
+  background-color: rgba(196, 48, 43, var(--bg-opacity));
+}
+
 .hover\:bg-primary-500:hover {
   --bg-opacity: 1;
   background-color: #FF6B1A;
@@ -3936,6 +4046,34 @@ a :hover {
   --bg-opacity: 1;
   background-color: #702459;
   background-color: rgba(112, 36, 89, var(--bg-opacity));
+}
+
+.focus\:bg-facebook:focus {
+  --bg-opacity: 1;
+  background-color: #3b5998;
+  background-color: rgba(59, 89, 152, var(--bg-opacity));
+}
+
+.focus\:bg-reddit:focus {
+  --bg-opacity: 1;
+  background-color: #FF5700;
+  background-color: rgba(255, 87, 0, var(--bg-opacity));
+}
+
+.focus\:bg-twitter:focus {
+  background-color: #1da1f;
+}
+
+.focus\:bg-linkedin:focus {
+  --bg-opacity: 1;
+  background-color: #0e76a8;
+  background-color: rgba(14, 118, 168, var(--bg-opacity));
+}
+
+.focus\:bg-youtube:focus {
+  --bg-opacity: 1;
+  background-color: #c4302b;
+  background-color: rgba(196, 48, 43, var(--bg-opacity));
 }
 
 .focus\:bg-primary-500:focus {
@@ -4662,6 +4800,34 @@ a :hover {
   border-color: rgba(112, 36, 89, var(--border-opacity));
 }
 
+.border-facebook {
+  --border-opacity: 1;
+  border-color: #3b5998;
+  border-color: rgba(59, 89, 152, var(--border-opacity));
+}
+
+.border-reddit {
+  --border-opacity: 1;
+  border-color: #FF5700;
+  border-color: rgba(255, 87, 0, var(--border-opacity));
+}
+
+.border-twitter {
+  border-color: #1da1f;
+}
+
+.border-linkedin {
+  --border-opacity: 1;
+  border-color: #0e76a8;
+  border-color: rgba(14, 118, 168, var(--border-opacity));
+}
+
+.border-youtube {
+  --border-opacity: 1;
+  border-color: #c4302b;
+  border-color: rgba(196, 48, 43, var(--border-opacity));
+}
+
 .border-primary-500 {
   --border-opacity: 1;
   border-color: #FF6B1A;
@@ -5246,6 +5412,34 @@ a :hover {
   border-color: rgba(112, 36, 89, var(--border-opacity));
 }
 
+.hover\:border-facebook:hover {
+  --border-opacity: 1;
+  border-color: #3b5998;
+  border-color: rgba(59, 89, 152, var(--border-opacity));
+}
+
+.hover\:border-reddit:hover {
+  --border-opacity: 1;
+  border-color: #FF5700;
+  border-color: rgba(255, 87, 0, var(--border-opacity));
+}
+
+.hover\:border-twitter:hover {
+  border-color: #1da1f;
+}
+
+.hover\:border-linkedin:hover {
+  --border-opacity: 1;
+  border-color: #0e76a8;
+  border-color: rgba(14, 118, 168, var(--border-opacity));
+}
+
+.hover\:border-youtube:hover {
+  --border-opacity: 1;
+  border-color: #c4302b;
+  border-color: rgba(196, 48, 43, var(--border-opacity));
+}
+
 .hover\:border-primary-500:hover {
   --border-opacity: 1;
   border-color: #FF6B1A;
@@ -5828,6 +6022,34 @@ a :hover {
   --border-opacity: 1;
   border-color: #702459;
   border-color: rgba(112, 36, 89, var(--border-opacity));
+}
+
+.focus\:border-facebook:focus {
+  --border-opacity: 1;
+  border-color: #3b5998;
+  border-color: rgba(59, 89, 152, var(--border-opacity));
+}
+
+.focus\:border-reddit:focus {
+  --border-opacity: 1;
+  border-color: #FF5700;
+  border-color: rgba(255, 87, 0, var(--border-opacity));
+}
+
+.focus\:border-twitter:focus {
+  border-color: #1da1f;
+}
+
+.focus\:border-linkedin:focus {
+  --border-opacity: 1;
+  border-color: #0e76a8;
+  border-color: rgba(14, 118, 168, var(--border-opacity));
+}
+
+.focus\:border-youtube:focus {
+  --border-opacity: 1;
+  border-color: #c4302b;
+  border-color: rgba(196, 48, 43, var(--border-opacity));
 }
 
 .focus\:border-primary-500:focus {
@@ -11319,6 +11541,118 @@ a :hover {
   color: rgba(112, 36, 89, var(--placeholder-opacity));
 }
 
+.placeholder-facebook::-moz-placeholder {
+  --placeholder-opacity: 1;
+  color: #3b5998;
+  color: rgba(59, 89, 152, var(--placeholder-opacity));
+}
+
+.placeholder-facebook:-ms-input-placeholder {
+  --placeholder-opacity: 1;
+  color: #3b5998;
+  color: rgba(59, 89, 152, var(--placeholder-opacity));
+}
+
+.placeholder-facebook::-ms-input-placeholder {
+  --placeholder-opacity: 1;
+  color: #3b5998;
+  color: rgba(59, 89, 152, var(--placeholder-opacity));
+}
+
+.placeholder-facebook::placeholder {
+  --placeholder-opacity: 1;
+  color: #3b5998;
+  color: rgba(59, 89, 152, var(--placeholder-opacity));
+}
+
+.placeholder-reddit::-moz-placeholder {
+  --placeholder-opacity: 1;
+  color: #FF5700;
+  color: rgba(255, 87, 0, var(--placeholder-opacity));
+}
+
+.placeholder-reddit:-ms-input-placeholder {
+  --placeholder-opacity: 1;
+  color: #FF5700;
+  color: rgba(255, 87, 0, var(--placeholder-opacity));
+}
+
+.placeholder-reddit::-ms-input-placeholder {
+  --placeholder-opacity: 1;
+  color: #FF5700;
+  color: rgba(255, 87, 0, var(--placeholder-opacity));
+}
+
+.placeholder-reddit::placeholder {
+  --placeholder-opacity: 1;
+  color: #FF5700;
+  color: rgba(255, 87, 0, var(--placeholder-opacity));
+}
+
+.placeholder-twitter::-moz-placeholder {
+  color: #1da1f;
+}
+
+.placeholder-twitter:-ms-input-placeholder {
+  color: #1da1f;
+}
+
+.placeholder-twitter::-ms-input-placeholder {
+  color: #1da1f;
+}
+
+.placeholder-twitter::placeholder {
+  color: #1da1f;
+}
+
+.placeholder-linkedin::-moz-placeholder {
+  --placeholder-opacity: 1;
+  color: #0e76a8;
+  color: rgba(14, 118, 168, var(--placeholder-opacity));
+}
+
+.placeholder-linkedin:-ms-input-placeholder {
+  --placeholder-opacity: 1;
+  color: #0e76a8;
+  color: rgba(14, 118, 168, var(--placeholder-opacity));
+}
+
+.placeholder-linkedin::-ms-input-placeholder {
+  --placeholder-opacity: 1;
+  color: #0e76a8;
+  color: rgba(14, 118, 168, var(--placeholder-opacity));
+}
+
+.placeholder-linkedin::placeholder {
+  --placeholder-opacity: 1;
+  color: #0e76a8;
+  color: rgba(14, 118, 168, var(--placeholder-opacity));
+}
+
+.placeholder-youtube::-moz-placeholder {
+  --placeholder-opacity: 1;
+  color: #c4302b;
+  color: rgba(196, 48, 43, var(--placeholder-opacity));
+}
+
+.placeholder-youtube:-ms-input-placeholder {
+  --placeholder-opacity: 1;
+  color: #c4302b;
+  color: rgba(196, 48, 43, var(--placeholder-opacity));
+}
+
+.placeholder-youtube::-ms-input-placeholder {
+  --placeholder-opacity: 1;
+  color: #c4302b;
+  color: rgba(196, 48, 43, var(--placeholder-opacity));
+}
+
+.placeholder-youtube::placeholder {
+  --placeholder-opacity: 1;
+  color: #c4302b;
+  color: rgba(196, 48, 43, var(--placeholder-opacity));
+}
+
 .placeholder-primary-500::-moz-placeholder {
   --placeholder-opacity: 1;
   color: #FF6B1A;
@@ -13655,6 +13989,118 @@ a :hover {
   color: rgba(112, 36, 89, var(--placeholder-opacity));
 }
 
+.focus\:placeholder-facebook:focus::-moz-placeholder {
+  --placeholder-opacity: 1;
+  color: #3b5998;
+  color: rgba(59, 89, 152, var(--placeholder-opacity));
+}
+
+.focus\:placeholder-facebook:focus:-ms-input-placeholder {
+  --placeholder-opacity: 1;
+  color: #3b5998;
+  color: rgba(59, 89, 152, var(--placeholder-opacity));
+}
+
+.focus\:placeholder-facebook:focus::-ms-input-placeholder {
+  --placeholder-opacity: 1;
+  color: #3b5998;
+  color: rgba(59, 89, 152, var(--placeholder-opacity));
+}
+
+.focus\:placeholder-facebook:focus::placeholder {
+  --placeholder-opacity: 1;
+  color: #3b5998;
+  color: rgba(59, 89, 152, var(--placeholder-opacity));
+}
+
+.focus\:placeholder-reddit:focus::-moz-placeholder {
+  --placeholder-opacity: 1;
+  color: #FF5700;
+  color: rgba(255, 87, 0, var(--placeholder-opacity));
+}
+
+.focus\:placeholder-reddit:focus:-ms-input-placeholder {
+  --placeholder-opacity: 1;
+  color: #FF5700;
+  color: rgba(255, 87, 0, var(--placeholder-opacity));
+}
+
+.focus\:placeholder-reddit:focus::-ms-input-placeholder {
+  --placeholder-opacity: 1;
+  color: #FF5700;
+  color: rgba(255, 87, 0, var(--placeholder-opacity));
+}
+
+.focus\:placeholder-reddit:focus::placeholder {
+  --placeholder-opacity: 1;
+  color: #FF5700;
+  color: rgba(255, 87, 0, var(--placeholder-opacity));
+}
+
+.focus\:placeholder-twitter:focus::-moz-placeholder {
+  color: #1da1f;
+}
+
+.focus\:placeholder-twitter:focus:-ms-input-placeholder {
+  color: #1da1f;
+}
+
+.focus\:placeholder-twitter:focus::-ms-input-placeholder {
+  color: #1da1f;
+}
+
+.focus\:placeholder-twitter:focus::placeholder {
+  color: #1da1f;
+}
+
+.focus\:placeholder-linkedin:focus::-moz-placeholder {
+  --placeholder-opacity: 1;
+  color: #0e76a8;
+  color: rgba(14, 118, 168, var(--placeholder-opacity));
+}
+
+.focus\:placeholder-linkedin:focus:-ms-input-placeholder {
+  --placeholder-opacity: 1;
+  color: #0e76a8;
+  color: rgba(14, 118, 168, var(--placeholder-opacity));
+}
+
+.focus\:placeholder-linkedin:focus::-ms-input-placeholder {
+  --placeholder-opacity: 1;
+  color: #0e76a8;
+  color: rgba(14, 118, 168, var(--placeholder-opacity));
+}
+
+.focus\:placeholder-linkedin:focus::placeholder {
+  --placeholder-opacity: 1;
+  color: #0e76a8;
+  color: rgba(14, 118, 168, var(--placeholder-opacity));
+}
+
+.focus\:placeholder-youtube:focus::-moz-placeholder {
+  --placeholder-opacity: 1;
+  color: #c4302b;
+  color: rgba(196, 48, 43, var(--placeholder-opacity));
+}
+
+.focus\:placeholder-youtube:focus:-ms-input-placeholder {
+  --placeholder-opacity: 1;
+  color: #c4302b;
+  color: rgba(196, 48, 43, var(--placeholder-opacity));
+}
+
+.focus\:placeholder-youtube:focus::-ms-input-placeholder {
+  --placeholder-opacity: 1;
+  color: #c4302b;
+  color: rgba(196, 48, 43, var(--placeholder-opacity));
+}
+
+.focus\:placeholder-youtube:focus::placeholder {
+  --placeholder-opacity: 1;
+  color: #c4302b;
+  color: rgba(196, 48, 43, var(--placeholder-opacity));
+}
+
 .focus\:placeholder-primary-500:focus::-moz-placeholder {
   --placeholder-opacity: 1;
   color: #FF6B1A;
@@ -14746,6 +15192,34 @@ a :hover {
   color: rgba(112, 36, 89, var(--text-opacity));
 }
 
+.text-facebook {
+  --text-opacity: 1;
+  color: #3b5998;
+  color: rgba(59, 89, 152, var(--text-opacity));
+}
+
+.text-reddit {
+  --text-opacity: 1;
+  color: #FF5700;
+  color: rgba(255, 87, 0, var(--text-opacity));
+}
+
+.text-twitter {
+  color: #1da1f;
+}
+
+.text-linkedin {
+  --text-opacity: 1;
+  color: #0e76a8;
+  color: rgba(14, 118, 168, var(--text-opacity));
+}
+
+.text-youtube {
+  --text-opacity: 1;
+  color: #c4302b;
+  color: rgba(196, 48, 43, var(--text-opacity));
+}
+
 .text-primary-500 {
   --text-opacity: 1;
   color: #FF6B1A;
@@ -15330,6 +15804,34 @@ a :hover {
   color: rgba(112, 36, 89, var(--text-opacity));
 }
 
+.hover\:text-facebook:hover {
+  --text-opacity: 1;
+  color: #3b5998;
+  color: rgba(59, 89, 152, var(--text-opacity));
+}
+
+.hover\:text-reddit:hover {
+  --text-opacity: 1;
+  color: #FF5700;
+  color: rgba(255, 87, 0, var(--text-opacity));
+}
+
+.hover\:text-twitter:hover {
+  color: #1da1f;
+}
+
+.hover\:text-linkedin:hover {
+  --text-opacity: 1;
+  color: #0e76a8;
+  color: rgba(14, 118, 168, var(--text-opacity));
+}
+
+.hover\:text-youtube:hover {
+  --text-opacity: 1;
+  color: #c4302b;
+  color: rgba(196, 48, 43, var(--text-opacity));
+}
+
 .hover\:text-primary-500:hover {
   --text-opacity: 1;
   color: #FF6B1A;
@@ -15912,6 +16414,34 @@ a :hover {
   --text-opacity: 1;
   color: #702459;
   color: rgba(112, 36, 89, var(--text-opacity));
+}
+
+.focus\:text-facebook:focus {
+  --text-opacity: 1;
+  color: #3b5998;
+  color: rgba(59, 89, 152, var(--text-opacity));
+}
+
+.focus\:text-reddit:focus {
+  --text-opacity: 1;
+  color: #FF5700;
+  color: rgba(255, 87, 0, var(--text-opacity));
+}
+
+.focus\:text-twitter:focus {
+  color: #1da1f;
+}
+
+.focus\:text-linkedin:focus {
+  --text-opacity: 1;
+  color: #0e76a8;
+  color: rgba(14, 118, 168, var(--text-opacity));
+}
+
+.focus\:text-youtube:focus {
+  --text-opacity: 1;
+  color: #c4302b;
+  color: rgba(196, 48, 43, var(--text-opacity));
 }
 
 .focus\:text-primary-500:focus {
@@ -19996,6 +20526,34 @@ a :hover {
     border-color: rgba(112, 36, 89, var(--divide-opacity));
   }
 
+  .sm\:divide-facebook > :not(template) ~ :not(template) {
+    --divide-opacity: 1;
+    border-color: #3b5998;
+    border-color: rgba(59, 89, 152, var(--divide-opacity));
+  }
+
+  .sm\:divide-reddit > :not(template) ~ :not(template) {
+    --divide-opacity: 1;
+    border-color: #FF5700;
+    border-color: rgba(255, 87, 0, var(--divide-opacity));
+  }
+
+  .sm\:divide-twitter > :not(template) ~ :not(template) {
+    border-color: #1da1f;
+  }
+
+  .sm\:divide-linkedin > :not(template) ~ :not(template) {
+    --divide-opacity: 1;
+    border-color: #0e76a8;
+    border-color: rgba(14, 118, 168, var(--divide-opacity));
+  }
+
+  .sm\:divide-youtube > :not(template) ~ :not(template) {
+    --divide-opacity: 1;
+    border-color: #c4302b;
+    border-color: rgba(196, 48, 43, var(--divide-opacity));
+  }
+
   .sm\:divide-primary-500 > :not(template) ~ :not(template) {
     --divide-opacity: 1;
     border-color: #FF6B1A;
@@ -20664,6 +21222,34 @@ a :hover {
     background-color: rgba(112, 36, 89, var(--bg-opacity));
   }
 
+  .sm\:bg-facebook {
+    --bg-opacity: 1;
+    background-color: #3b5998;
+    background-color: rgba(59, 89, 152, var(--bg-opacity));
+  }
+
+  .sm\:bg-reddit {
+    --bg-opacity: 1;
+    background-color: #FF5700;
+    background-color: rgba(255, 87, 0, var(--bg-opacity));
+  }
+
+  .sm\:bg-twitter {
+    background-color: #1da1f;
+  }
+
+  .sm\:bg-linkedin {
+    --bg-opacity: 1;
+    background-color: #0e76a8;
+    background-color: rgba(14, 118, 168, var(--bg-opacity));
+  }
+
+  .sm\:bg-youtube {
+    --bg-opacity: 1;
+    background-color: #c4302b;
+    background-color: rgba(196, 48, 43, var(--bg-opacity));
+  }
+
   .sm\:bg-primary-500 {
     --bg-opacity: 1;
     background-color: #FF6B1A;
@@ -21248,6 +21834,34 @@ a :hover {
     background-color: rgba(112, 36, 89, var(--bg-opacity));
   }
 
+  .sm\:hover\:bg-facebook:hover {
+    --bg-opacity: 1;
+    background-color: #3b5998;
+    background-color: rgba(59, 89, 152, var(--bg-opacity));
+  }
+
+  .sm\:hover\:bg-reddit:hover {
+    --bg-opacity: 1;
+    background-color: #FF5700;
+    background-color: rgba(255, 87, 0, var(--bg-opacity));
+  }
+
+  .sm\:hover\:bg-twitter:hover {
+    background-color: #1da1f;
+  }
+
+  .sm\:hover\:bg-linkedin:hover {
+    --bg-opacity: 1;
+    background-color: #0e76a8;
+    background-color: rgba(14, 118, 168, var(--bg-opacity));
+  }
+
+  .sm\:hover\:bg-youtube:hover {
+    --bg-opacity: 1;
+    background-color: #c4302b;
+    background-color: rgba(196, 48, 43, var(--bg-opacity));
+  }
+
   .sm\:hover\:bg-primary-500:hover {
     --bg-opacity: 1;
     background-color: #FF6B1A;
@@ -21830,6 +22444,34 @@ a :hover {
     --bg-opacity: 1;
     background-color: #702459;
     background-color: rgba(112, 36, 89, var(--bg-opacity));
+  }
+
+  .sm\:focus\:bg-facebook:focus {
+    --bg-opacity: 1;
+    background-color: #3b5998;
+    background-color: rgba(59, 89, 152, var(--bg-opacity));
+  }
+
+  .sm\:focus\:bg-reddit:focus {
+    --bg-opacity: 1;
+    background-color: #FF5700;
+    background-color: rgba(255, 87, 0, var(--bg-opacity));
+  }
+
+  .sm\:focus\:bg-twitter:focus {
+    background-color: #1da1f;
+  }
+
+  .sm\:focus\:bg-linkedin:focus {
+    --bg-opacity: 1;
+    background-color: #0e76a8;
+    background-color: rgba(14, 118, 168, var(--bg-opacity));
+  }
+
+  .sm\:focus\:bg-youtube:focus {
+    --bg-opacity: 1;
+    background-color: #c4302b;
+    background-color: rgba(196, 48, 43, var(--bg-opacity));
   }
 
   .sm\:focus\:bg-primary-500:focus {
@@ -22556,6 +23198,34 @@ a :hover {
     border-color: rgba(112, 36, 89, var(--border-opacity));
   }
 
+  .sm\:border-facebook {
+    --border-opacity: 1;
+    border-color: #3b5998;
+    border-color: rgba(59, 89, 152, var(--border-opacity));
+  }
+
+  .sm\:border-reddit {
+    --border-opacity: 1;
+    border-color: #FF5700;
+    border-color: rgba(255, 87, 0, var(--border-opacity));
+  }
+
+  .sm\:border-twitter {
+    border-color: #1da1f;
+  }
+
+  .sm\:border-linkedin {
+    --border-opacity: 1;
+    border-color: #0e76a8;
+    border-color: rgba(14, 118, 168, var(--border-opacity));
+  }
+
+  .sm\:border-youtube {
+    --border-opacity: 1;
+    border-color: #c4302b;
+    border-color: rgba(196, 48, 43, var(--border-opacity));
+  }
+
   .sm\:border-primary-500 {
     --border-opacity: 1;
     border-color: #FF6B1A;
@@ -23140,6 +23810,34 @@ a :hover {
     border-color: rgba(112, 36, 89, var(--border-opacity));
   }
 
+  .sm\:hover\:border-facebook:hover {
+    --border-opacity: 1;
+    border-color: #3b5998;
+    border-color: rgba(59, 89, 152, var(--border-opacity));
+  }
+
+  .sm\:hover\:border-reddit:hover {
+    --border-opacity: 1;
+    border-color: #FF5700;
+    border-color: rgba(255, 87, 0, var(--border-opacity));
+  }
+
+  .sm\:hover\:border-twitter:hover {
+    border-color: #1da1f;
+  }
+
+  .sm\:hover\:border-linkedin:hover {
+    --border-opacity: 1;
+    border-color: #0e76a8;
+    border-color: rgba(14, 118, 168, var(--border-opacity));
+  }
+
+  .sm\:hover\:border-youtube:hover {
+    --border-opacity: 1;
+    border-color: #c4302b;
+    border-color: rgba(196, 48, 43, var(--border-opacity));
+  }
+
   .sm\:hover\:border-primary-500:hover {
     --border-opacity: 1;
     border-color: #FF6B1A;
@@ -23722,6 +24420,34 @@ a :hover {
     --border-opacity: 1;
     border-color: #702459;
     border-color: rgba(112, 36, 89, var(--border-opacity));
+  }
+
+  .sm\:focus\:border-facebook:focus {
+    --border-opacity: 1;
+    border-color: #3b5998;
+    border-color: rgba(59, 89, 152, var(--border-opacity));
+  }
+
+  .sm\:focus\:border-reddit:focus {
+    --border-opacity: 1;
+    border-color: #FF5700;
+    border-color: rgba(255, 87, 0, var(--border-opacity));
+  }
+
+  .sm\:focus\:border-twitter:focus {
+    border-color: #1da1f;
+  }
+
+  .sm\:focus\:border-linkedin:focus {
+    --border-opacity: 1;
+    border-color: #0e76a8;
+    border-color: rgba(14, 118, 168, var(--border-opacity));
+  }
+
+  .sm\:focus\:border-youtube:focus {
+    --border-opacity: 1;
+    border-color: #c4302b;
+    border-color: rgba(196, 48, 43, var(--border-opacity));
   }
 
   .sm\:focus\:border-primary-500:focus {
@@ -29213,6 +29939,118 @@ a :hover {
     color: rgba(112, 36, 89, var(--placeholder-opacity));
   }
 
+  .sm\:placeholder-facebook::-moz-placeholder {
+    --placeholder-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--placeholder-opacity));
+  }
+
+  .sm\:placeholder-facebook:-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--placeholder-opacity));
+  }
+
+  .sm\:placeholder-facebook::-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--placeholder-opacity));
+  }
+
+  .sm\:placeholder-facebook::placeholder {
+    --placeholder-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--placeholder-opacity));
+  }
+
+  .sm\:placeholder-reddit::-moz-placeholder {
+    --placeholder-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--placeholder-opacity));
+  }
+
+  .sm\:placeholder-reddit:-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--placeholder-opacity));
+  }
+
+  .sm\:placeholder-reddit::-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--placeholder-opacity));
+  }
+
+  .sm\:placeholder-reddit::placeholder {
+    --placeholder-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--placeholder-opacity));
+  }
+
+  .sm\:placeholder-twitter::-moz-placeholder {
+    color: #1da1f;
+  }
+
+  .sm\:placeholder-twitter:-ms-input-placeholder {
+    color: #1da1f;
+  }
+
+  .sm\:placeholder-twitter::-ms-input-placeholder {
+    color: #1da1f;
+  }
+
+  .sm\:placeholder-twitter::placeholder {
+    color: #1da1f;
+  }
+
+  .sm\:placeholder-linkedin::-moz-placeholder {
+    --placeholder-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--placeholder-opacity));
+  }
+
+  .sm\:placeholder-linkedin:-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--placeholder-opacity));
+  }
+
+  .sm\:placeholder-linkedin::-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--placeholder-opacity));
+  }
+
+  .sm\:placeholder-linkedin::placeholder {
+    --placeholder-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--placeholder-opacity));
+  }
+
+  .sm\:placeholder-youtube::-moz-placeholder {
+    --placeholder-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--placeholder-opacity));
+  }
+
+  .sm\:placeholder-youtube:-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--placeholder-opacity));
+  }
+
+  .sm\:placeholder-youtube::-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--placeholder-opacity));
+  }
+
+  .sm\:placeholder-youtube::placeholder {
+    --placeholder-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--placeholder-opacity));
+  }
+
   .sm\:placeholder-primary-500::-moz-placeholder {
     --placeholder-opacity: 1;
     color: #FF6B1A;
@@ -31549,6 +32387,118 @@ a :hover {
     color: rgba(112, 36, 89, var(--placeholder-opacity));
   }
 
+  .sm\:focus\:placeholder-facebook:focus::-moz-placeholder {
+    --placeholder-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--placeholder-opacity));
+  }
+
+  .sm\:focus\:placeholder-facebook:focus:-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--placeholder-opacity));
+  }
+
+  .sm\:focus\:placeholder-facebook:focus::-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--placeholder-opacity));
+  }
+
+  .sm\:focus\:placeholder-facebook:focus::placeholder {
+    --placeholder-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--placeholder-opacity));
+  }
+
+  .sm\:focus\:placeholder-reddit:focus::-moz-placeholder {
+    --placeholder-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--placeholder-opacity));
+  }
+
+  .sm\:focus\:placeholder-reddit:focus:-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--placeholder-opacity));
+  }
+
+  .sm\:focus\:placeholder-reddit:focus::-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--placeholder-opacity));
+  }
+
+  .sm\:focus\:placeholder-reddit:focus::placeholder {
+    --placeholder-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--placeholder-opacity));
+  }
+
+  .sm\:focus\:placeholder-twitter:focus::-moz-placeholder {
+    color: #1da1f;
+  }
+
+  .sm\:focus\:placeholder-twitter:focus:-ms-input-placeholder {
+    color: #1da1f;
+  }
+
+  .sm\:focus\:placeholder-twitter:focus::-ms-input-placeholder {
+    color: #1da1f;
+  }
+
+  .sm\:focus\:placeholder-twitter:focus::placeholder {
+    color: #1da1f;
+  }
+
+  .sm\:focus\:placeholder-linkedin:focus::-moz-placeholder {
+    --placeholder-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--placeholder-opacity));
+  }
+
+  .sm\:focus\:placeholder-linkedin:focus:-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--placeholder-opacity));
+  }
+
+  .sm\:focus\:placeholder-linkedin:focus::-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--placeholder-opacity));
+  }
+
+  .sm\:focus\:placeholder-linkedin:focus::placeholder {
+    --placeholder-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--placeholder-opacity));
+  }
+
+  .sm\:focus\:placeholder-youtube:focus::-moz-placeholder {
+    --placeholder-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--placeholder-opacity));
+  }
+
+  .sm\:focus\:placeholder-youtube:focus:-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--placeholder-opacity));
+  }
+
+  .sm\:focus\:placeholder-youtube:focus::-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--placeholder-opacity));
+  }
+
+  .sm\:focus\:placeholder-youtube:focus::placeholder {
+    --placeholder-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--placeholder-opacity));
+  }
+
   .sm\:focus\:placeholder-primary-500:focus::-moz-placeholder {
     --placeholder-opacity: 1;
     color: #FF6B1A;
@@ -32640,6 +33590,34 @@ a :hover {
     color: rgba(112, 36, 89, var(--text-opacity));
   }
 
+  .sm\:text-facebook {
+    --text-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--text-opacity));
+  }
+
+  .sm\:text-reddit {
+    --text-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--text-opacity));
+  }
+
+  .sm\:text-twitter {
+    color: #1da1f;
+  }
+
+  .sm\:text-linkedin {
+    --text-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--text-opacity));
+  }
+
+  .sm\:text-youtube {
+    --text-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--text-opacity));
+  }
+
   .sm\:text-primary-500 {
     --text-opacity: 1;
     color: #FF6B1A;
@@ -33224,6 +34202,34 @@ a :hover {
     color: rgba(112, 36, 89, var(--text-opacity));
   }
 
+  .sm\:hover\:text-facebook:hover {
+    --text-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--text-opacity));
+  }
+
+  .sm\:hover\:text-reddit:hover {
+    --text-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--text-opacity));
+  }
+
+  .sm\:hover\:text-twitter:hover {
+    color: #1da1f;
+  }
+
+  .sm\:hover\:text-linkedin:hover {
+    --text-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--text-opacity));
+  }
+
+  .sm\:hover\:text-youtube:hover {
+    --text-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--text-opacity));
+  }
+
   .sm\:hover\:text-primary-500:hover {
     --text-opacity: 1;
     color: #FF6B1A;
@@ -33806,6 +34812,34 @@ a :hover {
     --text-opacity: 1;
     color: #702459;
     color: rgba(112, 36, 89, var(--text-opacity));
+  }
+
+  .sm\:focus\:text-facebook:focus {
+    --text-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--text-opacity));
+  }
+
+  .sm\:focus\:text-reddit:focus {
+    --text-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--text-opacity));
+  }
+
+  .sm\:focus\:text-twitter:focus {
+    color: #1da1f;
+  }
+
+  .sm\:focus\:text-linkedin:focus {
+    --text-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--text-opacity));
+  }
+
+  .sm\:focus\:text-youtube:focus {
+    --text-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--text-opacity));
   }
 
   .sm\:focus\:text-primary-500:focus {
@@ -37881,6 +38915,34 @@ a :hover {
     border-color: rgba(112, 36, 89, var(--divide-opacity));
   }
 
+  .md\:divide-facebook > :not(template) ~ :not(template) {
+    --divide-opacity: 1;
+    border-color: #3b5998;
+    border-color: rgba(59, 89, 152, var(--divide-opacity));
+  }
+
+  .md\:divide-reddit > :not(template) ~ :not(template) {
+    --divide-opacity: 1;
+    border-color: #FF5700;
+    border-color: rgba(255, 87, 0, var(--divide-opacity));
+  }
+
+  .md\:divide-twitter > :not(template) ~ :not(template) {
+    border-color: #1da1f;
+  }
+
+  .md\:divide-linkedin > :not(template) ~ :not(template) {
+    --divide-opacity: 1;
+    border-color: #0e76a8;
+    border-color: rgba(14, 118, 168, var(--divide-opacity));
+  }
+
+  .md\:divide-youtube > :not(template) ~ :not(template) {
+    --divide-opacity: 1;
+    border-color: #c4302b;
+    border-color: rgba(196, 48, 43, var(--divide-opacity));
+  }
+
   .md\:divide-primary-500 > :not(template) ~ :not(template) {
     --divide-opacity: 1;
     border-color: #FF6B1A;
@@ -38549,6 +39611,34 @@ a :hover {
     background-color: rgba(112, 36, 89, var(--bg-opacity));
   }
 
+  .md\:bg-facebook {
+    --bg-opacity: 1;
+    background-color: #3b5998;
+    background-color: rgba(59, 89, 152, var(--bg-opacity));
+  }
+
+  .md\:bg-reddit {
+    --bg-opacity: 1;
+    background-color: #FF5700;
+    background-color: rgba(255, 87, 0, var(--bg-opacity));
+  }
+
+  .md\:bg-twitter {
+    background-color: #1da1f;
+  }
+
+  .md\:bg-linkedin {
+    --bg-opacity: 1;
+    background-color: #0e76a8;
+    background-color: rgba(14, 118, 168, var(--bg-opacity));
+  }
+
+  .md\:bg-youtube {
+    --bg-opacity: 1;
+    background-color: #c4302b;
+    background-color: rgba(196, 48, 43, var(--bg-opacity));
+  }
+
   .md\:bg-primary-500 {
     --bg-opacity: 1;
     background-color: #FF6B1A;
@@ -39133,6 +40223,34 @@ a :hover {
     background-color: rgba(112, 36, 89, var(--bg-opacity));
   }
 
+  .md\:hover\:bg-facebook:hover {
+    --bg-opacity: 1;
+    background-color: #3b5998;
+    background-color: rgba(59, 89, 152, var(--bg-opacity));
+  }
+
+  .md\:hover\:bg-reddit:hover {
+    --bg-opacity: 1;
+    background-color: #FF5700;
+    background-color: rgba(255, 87, 0, var(--bg-opacity));
+  }
+
+  .md\:hover\:bg-twitter:hover {
+    background-color: #1da1f;
+  }
+
+  .md\:hover\:bg-linkedin:hover {
+    --bg-opacity: 1;
+    background-color: #0e76a8;
+    background-color: rgba(14, 118, 168, var(--bg-opacity));
+  }
+
+  .md\:hover\:bg-youtube:hover {
+    --bg-opacity: 1;
+    background-color: #c4302b;
+    background-color: rgba(196, 48, 43, var(--bg-opacity));
+  }
+
   .md\:hover\:bg-primary-500:hover {
     --bg-opacity: 1;
     background-color: #FF6B1A;
@@ -39715,6 +40833,34 @@ a :hover {
     --bg-opacity: 1;
     background-color: #702459;
     background-color: rgba(112, 36, 89, var(--bg-opacity));
+  }
+
+  .md\:focus\:bg-facebook:focus {
+    --bg-opacity: 1;
+    background-color: #3b5998;
+    background-color: rgba(59, 89, 152, var(--bg-opacity));
+  }
+
+  .md\:focus\:bg-reddit:focus {
+    --bg-opacity: 1;
+    background-color: #FF5700;
+    background-color: rgba(255, 87, 0, var(--bg-opacity));
+  }
+
+  .md\:focus\:bg-twitter:focus {
+    background-color: #1da1f;
+  }
+
+  .md\:focus\:bg-linkedin:focus {
+    --bg-opacity: 1;
+    background-color: #0e76a8;
+    background-color: rgba(14, 118, 168, var(--bg-opacity));
+  }
+
+  .md\:focus\:bg-youtube:focus {
+    --bg-opacity: 1;
+    background-color: #c4302b;
+    background-color: rgba(196, 48, 43, var(--bg-opacity));
   }
 
   .md\:focus\:bg-primary-500:focus {
@@ -40441,6 +41587,34 @@ a :hover {
     border-color: rgba(112, 36, 89, var(--border-opacity));
   }
 
+  .md\:border-facebook {
+    --border-opacity: 1;
+    border-color: #3b5998;
+    border-color: rgba(59, 89, 152, var(--border-opacity));
+  }
+
+  .md\:border-reddit {
+    --border-opacity: 1;
+    border-color: #FF5700;
+    border-color: rgba(255, 87, 0, var(--border-opacity));
+  }
+
+  .md\:border-twitter {
+    border-color: #1da1f;
+  }
+
+  .md\:border-linkedin {
+    --border-opacity: 1;
+    border-color: #0e76a8;
+    border-color: rgba(14, 118, 168, var(--border-opacity));
+  }
+
+  .md\:border-youtube {
+    --border-opacity: 1;
+    border-color: #c4302b;
+    border-color: rgba(196, 48, 43, var(--border-opacity));
+  }
+
   .md\:border-primary-500 {
     --border-opacity: 1;
     border-color: #FF6B1A;
@@ -41025,6 +42199,34 @@ a :hover {
     border-color: rgba(112, 36, 89, var(--border-opacity));
   }
 
+  .md\:hover\:border-facebook:hover {
+    --border-opacity: 1;
+    border-color: #3b5998;
+    border-color: rgba(59, 89, 152, var(--border-opacity));
+  }
+
+  .md\:hover\:border-reddit:hover {
+    --border-opacity: 1;
+    border-color: #FF5700;
+    border-color: rgba(255, 87, 0, var(--border-opacity));
+  }
+
+  .md\:hover\:border-twitter:hover {
+    border-color: #1da1f;
+  }
+
+  .md\:hover\:border-linkedin:hover {
+    --border-opacity: 1;
+    border-color: #0e76a8;
+    border-color: rgba(14, 118, 168, var(--border-opacity));
+  }
+
+  .md\:hover\:border-youtube:hover {
+    --border-opacity: 1;
+    border-color: #c4302b;
+    border-color: rgba(196, 48, 43, var(--border-opacity));
+  }
+
   .md\:hover\:border-primary-500:hover {
     --border-opacity: 1;
     border-color: #FF6B1A;
@@ -41607,6 +42809,34 @@ a :hover {
     --border-opacity: 1;
     border-color: #702459;
     border-color: rgba(112, 36, 89, var(--border-opacity));
+  }
+
+  .md\:focus\:border-facebook:focus {
+    --border-opacity: 1;
+    border-color: #3b5998;
+    border-color: rgba(59, 89, 152, var(--border-opacity));
+  }
+
+  .md\:focus\:border-reddit:focus {
+    --border-opacity: 1;
+    border-color: #FF5700;
+    border-color: rgba(255, 87, 0, var(--border-opacity));
+  }
+
+  .md\:focus\:border-twitter:focus {
+    border-color: #1da1f;
+  }
+
+  .md\:focus\:border-linkedin:focus {
+    --border-opacity: 1;
+    border-color: #0e76a8;
+    border-color: rgba(14, 118, 168, var(--border-opacity));
+  }
+
+  .md\:focus\:border-youtube:focus {
+    --border-opacity: 1;
+    border-color: #c4302b;
+    border-color: rgba(196, 48, 43, var(--border-opacity));
   }
 
   .md\:focus\:border-primary-500:focus {
@@ -47098,6 +48328,118 @@ a :hover {
     color: rgba(112, 36, 89, var(--placeholder-opacity));
   }
 
+  .md\:placeholder-facebook::-moz-placeholder {
+    --placeholder-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--placeholder-opacity));
+  }
+
+  .md\:placeholder-facebook:-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--placeholder-opacity));
+  }
+
+  .md\:placeholder-facebook::-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--placeholder-opacity));
+  }
+
+  .md\:placeholder-facebook::placeholder {
+    --placeholder-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--placeholder-opacity));
+  }
+
+  .md\:placeholder-reddit::-moz-placeholder {
+    --placeholder-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--placeholder-opacity));
+  }
+
+  .md\:placeholder-reddit:-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--placeholder-opacity));
+  }
+
+  .md\:placeholder-reddit::-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--placeholder-opacity));
+  }
+
+  .md\:placeholder-reddit::placeholder {
+    --placeholder-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--placeholder-opacity));
+  }
+
+  .md\:placeholder-twitter::-moz-placeholder {
+    color: #1da1f;
+  }
+
+  .md\:placeholder-twitter:-ms-input-placeholder {
+    color: #1da1f;
+  }
+
+  .md\:placeholder-twitter::-ms-input-placeholder {
+    color: #1da1f;
+  }
+
+  .md\:placeholder-twitter::placeholder {
+    color: #1da1f;
+  }
+
+  .md\:placeholder-linkedin::-moz-placeholder {
+    --placeholder-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--placeholder-opacity));
+  }
+
+  .md\:placeholder-linkedin:-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--placeholder-opacity));
+  }
+
+  .md\:placeholder-linkedin::-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--placeholder-opacity));
+  }
+
+  .md\:placeholder-linkedin::placeholder {
+    --placeholder-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--placeholder-opacity));
+  }
+
+  .md\:placeholder-youtube::-moz-placeholder {
+    --placeholder-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--placeholder-opacity));
+  }
+
+  .md\:placeholder-youtube:-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--placeholder-opacity));
+  }
+
+  .md\:placeholder-youtube::-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--placeholder-opacity));
+  }
+
+  .md\:placeholder-youtube::placeholder {
+    --placeholder-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--placeholder-opacity));
+  }
+
   .md\:placeholder-primary-500::-moz-placeholder {
     --placeholder-opacity: 1;
     color: #FF6B1A;
@@ -49434,6 +50776,118 @@ a :hover {
     color: rgba(112, 36, 89, var(--placeholder-opacity));
   }
 
+  .md\:focus\:placeholder-facebook:focus::-moz-placeholder {
+    --placeholder-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--placeholder-opacity));
+  }
+
+  .md\:focus\:placeholder-facebook:focus:-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--placeholder-opacity));
+  }
+
+  .md\:focus\:placeholder-facebook:focus::-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--placeholder-opacity));
+  }
+
+  .md\:focus\:placeholder-facebook:focus::placeholder {
+    --placeholder-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--placeholder-opacity));
+  }
+
+  .md\:focus\:placeholder-reddit:focus::-moz-placeholder {
+    --placeholder-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--placeholder-opacity));
+  }
+
+  .md\:focus\:placeholder-reddit:focus:-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--placeholder-opacity));
+  }
+
+  .md\:focus\:placeholder-reddit:focus::-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--placeholder-opacity));
+  }
+
+  .md\:focus\:placeholder-reddit:focus::placeholder {
+    --placeholder-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--placeholder-opacity));
+  }
+
+  .md\:focus\:placeholder-twitter:focus::-moz-placeholder {
+    color: #1da1f;
+  }
+
+  .md\:focus\:placeholder-twitter:focus:-ms-input-placeholder {
+    color: #1da1f;
+  }
+
+  .md\:focus\:placeholder-twitter:focus::-ms-input-placeholder {
+    color: #1da1f;
+  }
+
+  .md\:focus\:placeholder-twitter:focus::placeholder {
+    color: #1da1f;
+  }
+
+  .md\:focus\:placeholder-linkedin:focus::-moz-placeholder {
+    --placeholder-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--placeholder-opacity));
+  }
+
+  .md\:focus\:placeholder-linkedin:focus:-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--placeholder-opacity));
+  }
+
+  .md\:focus\:placeholder-linkedin:focus::-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--placeholder-opacity));
+  }
+
+  .md\:focus\:placeholder-linkedin:focus::placeholder {
+    --placeholder-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--placeholder-opacity));
+  }
+
+  .md\:focus\:placeholder-youtube:focus::-moz-placeholder {
+    --placeholder-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--placeholder-opacity));
+  }
+
+  .md\:focus\:placeholder-youtube:focus:-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--placeholder-opacity));
+  }
+
+  .md\:focus\:placeholder-youtube:focus::-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--placeholder-opacity));
+  }
+
+  .md\:focus\:placeholder-youtube:focus::placeholder {
+    --placeholder-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--placeholder-opacity));
+  }
+
   .md\:focus\:placeholder-primary-500:focus::-moz-placeholder {
     --placeholder-opacity: 1;
     color: #FF6B1A;
@@ -50525,6 +51979,34 @@ a :hover {
     color: rgba(112, 36, 89, var(--text-opacity));
   }
 
+  .md\:text-facebook {
+    --text-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--text-opacity));
+  }
+
+  .md\:text-reddit {
+    --text-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--text-opacity));
+  }
+
+  .md\:text-twitter {
+    color: #1da1f;
+  }
+
+  .md\:text-linkedin {
+    --text-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--text-opacity));
+  }
+
+  .md\:text-youtube {
+    --text-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--text-opacity));
+  }
+
   .md\:text-primary-500 {
     --text-opacity: 1;
     color: #FF6B1A;
@@ -51109,6 +52591,34 @@ a :hover {
     color: rgba(112, 36, 89, var(--text-opacity));
   }
 
+  .md\:hover\:text-facebook:hover {
+    --text-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--text-opacity));
+  }
+
+  .md\:hover\:text-reddit:hover {
+    --text-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--text-opacity));
+  }
+
+  .md\:hover\:text-twitter:hover {
+    color: #1da1f;
+  }
+
+  .md\:hover\:text-linkedin:hover {
+    --text-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--text-opacity));
+  }
+
+  .md\:hover\:text-youtube:hover {
+    --text-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--text-opacity));
+  }
+
   .md\:hover\:text-primary-500:hover {
     --text-opacity: 1;
     color: #FF6B1A;
@@ -51691,6 +53201,34 @@ a :hover {
     --text-opacity: 1;
     color: #702459;
     color: rgba(112, 36, 89, var(--text-opacity));
+  }
+
+  .md\:focus\:text-facebook:focus {
+    --text-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--text-opacity));
+  }
+
+  .md\:focus\:text-reddit:focus {
+    --text-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--text-opacity));
+  }
+
+  .md\:focus\:text-twitter:focus {
+    color: #1da1f;
+  }
+
+  .md\:focus\:text-linkedin:focus {
+    --text-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--text-opacity));
+  }
+
+  .md\:focus\:text-youtube:focus {
+    --text-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--text-opacity));
   }
 
   .md\:focus\:text-primary-500:focus {
@@ -55766,6 +57304,34 @@ a :hover {
     border-color: rgba(112, 36, 89, var(--divide-opacity));
   }
 
+  .lg\:divide-facebook > :not(template) ~ :not(template) {
+    --divide-opacity: 1;
+    border-color: #3b5998;
+    border-color: rgba(59, 89, 152, var(--divide-opacity));
+  }
+
+  .lg\:divide-reddit > :not(template) ~ :not(template) {
+    --divide-opacity: 1;
+    border-color: #FF5700;
+    border-color: rgba(255, 87, 0, var(--divide-opacity));
+  }
+
+  .lg\:divide-twitter > :not(template) ~ :not(template) {
+    border-color: #1da1f;
+  }
+
+  .lg\:divide-linkedin > :not(template) ~ :not(template) {
+    --divide-opacity: 1;
+    border-color: #0e76a8;
+    border-color: rgba(14, 118, 168, var(--divide-opacity));
+  }
+
+  .lg\:divide-youtube > :not(template) ~ :not(template) {
+    --divide-opacity: 1;
+    border-color: #c4302b;
+    border-color: rgba(196, 48, 43, var(--divide-opacity));
+  }
+
   .lg\:divide-primary-500 > :not(template) ~ :not(template) {
     --divide-opacity: 1;
     border-color: #FF6B1A;
@@ -56434,6 +58000,34 @@ a :hover {
     background-color: rgba(112, 36, 89, var(--bg-opacity));
   }
 
+  .lg\:bg-facebook {
+    --bg-opacity: 1;
+    background-color: #3b5998;
+    background-color: rgba(59, 89, 152, var(--bg-opacity));
+  }
+
+  .lg\:bg-reddit {
+    --bg-opacity: 1;
+    background-color: #FF5700;
+    background-color: rgba(255, 87, 0, var(--bg-opacity));
+  }
+
+  .lg\:bg-twitter {
+    background-color: #1da1f;
+  }
+
+  .lg\:bg-linkedin {
+    --bg-opacity: 1;
+    background-color: #0e76a8;
+    background-color: rgba(14, 118, 168, var(--bg-opacity));
+  }
+
+  .lg\:bg-youtube {
+    --bg-opacity: 1;
+    background-color: #c4302b;
+    background-color: rgba(196, 48, 43, var(--bg-opacity));
+  }
+
   .lg\:bg-primary-500 {
     --bg-opacity: 1;
     background-color: #FF6B1A;
@@ -57018,6 +58612,34 @@ a :hover {
     background-color: rgba(112, 36, 89, var(--bg-opacity));
   }
 
+  .lg\:hover\:bg-facebook:hover {
+    --bg-opacity: 1;
+    background-color: #3b5998;
+    background-color: rgba(59, 89, 152, var(--bg-opacity));
+  }
+
+  .lg\:hover\:bg-reddit:hover {
+    --bg-opacity: 1;
+    background-color: #FF5700;
+    background-color: rgba(255, 87, 0, var(--bg-opacity));
+  }
+
+  .lg\:hover\:bg-twitter:hover {
+    background-color: #1da1f;
+  }
+
+  .lg\:hover\:bg-linkedin:hover {
+    --bg-opacity: 1;
+    background-color: #0e76a8;
+    background-color: rgba(14, 118, 168, var(--bg-opacity));
+  }
+
+  .lg\:hover\:bg-youtube:hover {
+    --bg-opacity: 1;
+    background-color: #c4302b;
+    background-color: rgba(196, 48, 43, var(--bg-opacity));
+  }
+
   .lg\:hover\:bg-primary-500:hover {
     --bg-opacity: 1;
     background-color: #FF6B1A;
@@ -57600,6 +59222,34 @@ a :hover {
     --bg-opacity: 1;
     background-color: #702459;
     background-color: rgba(112, 36, 89, var(--bg-opacity));
+  }
+
+  .lg\:focus\:bg-facebook:focus {
+    --bg-opacity: 1;
+    background-color: #3b5998;
+    background-color: rgba(59, 89, 152, var(--bg-opacity));
+  }
+
+  .lg\:focus\:bg-reddit:focus {
+    --bg-opacity: 1;
+    background-color: #FF5700;
+    background-color: rgba(255, 87, 0, var(--bg-opacity));
+  }
+
+  .lg\:focus\:bg-twitter:focus {
+    background-color: #1da1f;
+  }
+
+  .lg\:focus\:bg-linkedin:focus {
+    --bg-opacity: 1;
+    background-color: #0e76a8;
+    background-color: rgba(14, 118, 168, var(--bg-opacity));
+  }
+
+  .lg\:focus\:bg-youtube:focus {
+    --bg-opacity: 1;
+    background-color: #c4302b;
+    background-color: rgba(196, 48, 43, var(--bg-opacity));
   }
 
   .lg\:focus\:bg-primary-500:focus {
@@ -58326,6 +59976,34 @@ a :hover {
     border-color: rgba(112, 36, 89, var(--border-opacity));
   }
 
+  .lg\:border-facebook {
+    --border-opacity: 1;
+    border-color: #3b5998;
+    border-color: rgba(59, 89, 152, var(--border-opacity));
+  }
+
+  .lg\:border-reddit {
+    --border-opacity: 1;
+    border-color: #FF5700;
+    border-color: rgba(255, 87, 0, var(--border-opacity));
+  }
+
+  .lg\:border-twitter {
+    border-color: #1da1f;
+  }
+
+  .lg\:border-linkedin {
+    --border-opacity: 1;
+    border-color: #0e76a8;
+    border-color: rgba(14, 118, 168, var(--border-opacity));
+  }
+
+  .lg\:border-youtube {
+    --border-opacity: 1;
+    border-color: #c4302b;
+    border-color: rgba(196, 48, 43, var(--border-opacity));
+  }
+
   .lg\:border-primary-500 {
     --border-opacity: 1;
     border-color: #FF6B1A;
@@ -58910,6 +60588,34 @@ a :hover {
     border-color: rgba(112, 36, 89, var(--border-opacity));
   }
 
+  .lg\:hover\:border-facebook:hover {
+    --border-opacity: 1;
+    border-color: #3b5998;
+    border-color: rgba(59, 89, 152, var(--border-opacity));
+  }
+
+  .lg\:hover\:border-reddit:hover {
+    --border-opacity: 1;
+    border-color: #FF5700;
+    border-color: rgba(255, 87, 0, var(--border-opacity));
+  }
+
+  .lg\:hover\:border-twitter:hover {
+    border-color: #1da1f;
+  }
+
+  .lg\:hover\:border-linkedin:hover {
+    --border-opacity: 1;
+    border-color: #0e76a8;
+    border-color: rgba(14, 118, 168, var(--border-opacity));
+  }
+
+  .lg\:hover\:border-youtube:hover {
+    --border-opacity: 1;
+    border-color: #c4302b;
+    border-color: rgba(196, 48, 43, var(--border-opacity));
+  }
+
   .lg\:hover\:border-primary-500:hover {
     --border-opacity: 1;
     border-color: #FF6B1A;
@@ -59492,6 +61198,34 @@ a :hover {
     --border-opacity: 1;
     border-color: #702459;
     border-color: rgba(112, 36, 89, var(--border-opacity));
+  }
+
+  .lg\:focus\:border-facebook:focus {
+    --border-opacity: 1;
+    border-color: #3b5998;
+    border-color: rgba(59, 89, 152, var(--border-opacity));
+  }
+
+  .lg\:focus\:border-reddit:focus {
+    --border-opacity: 1;
+    border-color: #FF5700;
+    border-color: rgba(255, 87, 0, var(--border-opacity));
+  }
+
+  .lg\:focus\:border-twitter:focus {
+    border-color: #1da1f;
+  }
+
+  .lg\:focus\:border-linkedin:focus {
+    --border-opacity: 1;
+    border-color: #0e76a8;
+    border-color: rgba(14, 118, 168, var(--border-opacity));
+  }
+
+  .lg\:focus\:border-youtube:focus {
+    --border-opacity: 1;
+    border-color: #c4302b;
+    border-color: rgba(196, 48, 43, var(--border-opacity));
   }
 
   .lg\:focus\:border-primary-500:focus {
@@ -64983,6 +66717,118 @@ a :hover {
     color: rgba(112, 36, 89, var(--placeholder-opacity));
   }
 
+  .lg\:placeholder-facebook::-moz-placeholder {
+    --placeholder-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--placeholder-opacity));
+  }
+
+  .lg\:placeholder-facebook:-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--placeholder-opacity));
+  }
+
+  .lg\:placeholder-facebook::-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--placeholder-opacity));
+  }
+
+  .lg\:placeholder-facebook::placeholder {
+    --placeholder-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--placeholder-opacity));
+  }
+
+  .lg\:placeholder-reddit::-moz-placeholder {
+    --placeholder-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--placeholder-opacity));
+  }
+
+  .lg\:placeholder-reddit:-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--placeholder-opacity));
+  }
+
+  .lg\:placeholder-reddit::-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--placeholder-opacity));
+  }
+
+  .lg\:placeholder-reddit::placeholder {
+    --placeholder-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--placeholder-opacity));
+  }
+
+  .lg\:placeholder-twitter::-moz-placeholder {
+    color: #1da1f;
+  }
+
+  .lg\:placeholder-twitter:-ms-input-placeholder {
+    color: #1da1f;
+  }
+
+  .lg\:placeholder-twitter::-ms-input-placeholder {
+    color: #1da1f;
+  }
+
+  .lg\:placeholder-twitter::placeholder {
+    color: #1da1f;
+  }
+
+  .lg\:placeholder-linkedin::-moz-placeholder {
+    --placeholder-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--placeholder-opacity));
+  }
+
+  .lg\:placeholder-linkedin:-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--placeholder-opacity));
+  }
+
+  .lg\:placeholder-linkedin::-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--placeholder-opacity));
+  }
+
+  .lg\:placeholder-linkedin::placeholder {
+    --placeholder-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--placeholder-opacity));
+  }
+
+  .lg\:placeholder-youtube::-moz-placeholder {
+    --placeholder-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--placeholder-opacity));
+  }
+
+  .lg\:placeholder-youtube:-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--placeholder-opacity));
+  }
+
+  .lg\:placeholder-youtube::-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--placeholder-opacity));
+  }
+
+  .lg\:placeholder-youtube::placeholder {
+    --placeholder-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--placeholder-opacity));
+  }
+
   .lg\:placeholder-primary-500::-moz-placeholder {
     --placeholder-opacity: 1;
     color: #FF6B1A;
@@ -67319,6 +69165,118 @@ a :hover {
     color: rgba(112, 36, 89, var(--placeholder-opacity));
   }
 
+  .lg\:focus\:placeholder-facebook:focus::-moz-placeholder {
+    --placeholder-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--placeholder-opacity));
+  }
+
+  .lg\:focus\:placeholder-facebook:focus:-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--placeholder-opacity));
+  }
+
+  .lg\:focus\:placeholder-facebook:focus::-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--placeholder-opacity));
+  }
+
+  .lg\:focus\:placeholder-facebook:focus::placeholder {
+    --placeholder-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--placeholder-opacity));
+  }
+
+  .lg\:focus\:placeholder-reddit:focus::-moz-placeholder {
+    --placeholder-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--placeholder-opacity));
+  }
+
+  .lg\:focus\:placeholder-reddit:focus:-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--placeholder-opacity));
+  }
+
+  .lg\:focus\:placeholder-reddit:focus::-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--placeholder-opacity));
+  }
+
+  .lg\:focus\:placeholder-reddit:focus::placeholder {
+    --placeholder-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--placeholder-opacity));
+  }
+
+  .lg\:focus\:placeholder-twitter:focus::-moz-placeholder {
+    color: #1da1f;
+  }
+
+  .lg\:focus\:placeholder-twitter:focus:-ms-input-placeholder {
+    color: #1da1f;
+  }
+
+  .lg\:focus\:placeholder-twitter:focus::-ms-input-placeholder {
+    color: #1da1f;
+  }
+
+  .lg\:focus\:placeholder-twitter:focus::placeholder {
+    color: #1da1f;
+  }
+
+  .lg\:focus\:placeholder-linkedin:focus::-moz-placeholder {
+    --placeholder-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--placeholder-opacity));
+  }
+
+  .lg\:focus\:placeholder-linkedin:focus:-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--placeholder-opacity));
+  }
+
+  .lg\:focus\:placeholder-linkedin:focus::-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--placeholder-opacity));
+  }
+
+  .lg\:focus\:placeholder-linkedin:focus::placeholder {
+    --placeholder-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--placeholder-opacity));
+  }
+
+  .lg\:focus\:placeholder-youtube:focus::-moz-placeholder {
+    --placeholder-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--placeholder-opacity));
+  }
+
+  .lg\:focus\:placeholder-youtube:focus:-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--placeholder-opacity));
+  }
+
+  .lg\:focus\:placeholder-youtube:focus::-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--placeholder-opacity));
+  }
+
+  .lg\:focus\:placeholder-youtube:focus::placeholder {
+    --placeholder-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--placeholder-opacity));
+  }
+
   .lg\:focus\:placeholder-primary-500:focus::-moz-placeholder {
     --placeholder-opacity: 1;
     color: #FF6B1A;
@@ -68410,6 +70368,34 @@ a :hover {
     color: rgba(112, 36, 89, var(--text-opacity));
   }
 
+  .lg\:text-facebook {
+    --text-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--text-opacity));
+  }
+
+  .lg\:text-reddit {
+    --text-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--text-opacity));
+  }
+
+  .lg\:text-twitter {
+    color: #1da1f;
+  }
+
+  .lg\:text-linkedin {
+    --text-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--text-opacity));
+  }
+
+  .lg\:text-youtube {
+    --text-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--text-opacity));
+  }
+
   .lg\:text-primary-500 {
     --text-opacity: 1;
     color: #FF6B1A;
@@ -68994,6 +70980,34 @@ a :hover {
     color: rgba(112, 36, 89, var(--text-opacity));
   }
 
+  .lg\:hover\:text-facebook:hover {
+    --text-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--text-opacity));
+  }
+
+  .lg\:hover\:text-reddit:hover {
+    --text-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--text-opacity));
+  }
+
+  .lg\:hover\:text-twitter:hover {
+    color: #1da1f;
+  }
+
+  .lg\:hover\:text-linkedin:hover {
+    --text-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--text-opacity));
+  }
+
+  .lg\:hover\:text-youtube:hover {
+    --text-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--text-opacity));
+  }
+
   .lg\:hover\:text-primary-500:hover {
     --text-opacity: 1;
     color: #FF6B1A;
@@ -69576,6 +71590,34 @@ a :hover {
     --text-opacity: 1;
     color: #702459;
     color: rgba(112, 36, 89, var(--text-opacity));
+  }
+
+  .lg\:focus\:text-facebook:focus {
+    --text-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--text-opacity));
+  }
+
+  .lg\:focus\:text-reddit:focus {
+    --text-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--text-opacity));
+  }
+
+  .lg\:focus\:text-twitter:focus {
+    color: #1da1f;
+  }
+
+  .lg\:focus\:text-linkedin:focus {
+    --text-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--text-opacity));
+  }
+
+  .lg\:focus\:text-youtube:focus {
+    --text-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--text-opacity));
   }
 
   .lg\:focus\:text-primary-500:focus {
@@ -73651,6 +75693,34 @@ a :hover {
     border-color: rgba(112, 36, 89, var(--divide-opacity));
   }
 
+  .xl\:divide-facebook > :not(template) ~ :not(template) {
+    --divide-opacity: 1;
+    border-color: #3b5998;
+    border-color: rgba(59, 89, 152, var(--divide-opacity));
+  }
+
+  .xl\:divide-reddit > :not(template) ~ :not(template) {
+    --divide-opacity: 1;
+    border-color: #FF5700;
+    border-color: rgba(255, 87, 0, var(--divide-opacity));
+  }
+
+  .xl\:divide-twitter > :not(template) ~ :not(template) {
+    border-color: #1da1f;
+  }
+
+  .xl\:divide-linkedin > :not(template) ~ :not(template) {
+    --divide-opacity: 1;
+    border-color: #0e76a8;
+    border-color: rgba(14, 118, 168, var(--divide-opacity));
+  }
+
+  .xl\:divide-youtube > :not(template) ~ :not(template) {
+    --divide-opacity: 1;
+    border-color: #c4302b;
+    border-color: rgba(196, 48, 43, var(--divide-opacity));
+  }
+
   .xl\:divide-primary-500 > :not(template) ~ :not(template) {
     --divide-opacity: 1;
     border-color: #FF6B1A;
@@ -74319,6 +76389,34 @@ a :hover {
     background-color: rgba(112, 36, 89, var(--bg-opacity));
   }
 
+  .xl\:bg-facebook {
+    --bg-opacity: 1;
+    background-color: #3b5998;
+    background-color: rgba(59, 89, 152, var(--bg-opacity));
+  }
+
+  .xl\:bg-reddit {
+    --bg-opacity: 1;
+    background-color: #FF5700;
+    background-color: rgba(255, 87, 0, var(--bg-opacity));
+  }
+
+  .xl\:bg-twitter {
+    background-color: #1da1f;
+  }
+
+  .xl\:bg-linkedin {
+    --bg-opacity: 1;
+    background-color: #0e76a8;
+    background-color: rgba(14, 118, 168, var(--bg-opacity));
+  }
+
+  .xl\:bg-youtube {
+    --bg-opacity: 1;
+    background-color: #c4302b;
+    background-color: rgba(196, 48, 43, var(--bg-opacity));
+  }
+
   .xl\:bg-primary-500 {
     --bg-opacity: 1;
     background-color: #FF6B1A;
@@ -74903,6 +77001,34 @@ a :hover {
     background-color: rgba(112, 36, 89, var(--bg-opacity));
   }
 
+  .xl\:hover\:bg-facebook:hover {
+    --bg-opacity: 1;
+    background-color: #3b5998;
+    background-color: rgba(59, 89, 152, var(--bg-opacity));
+  }
+
+  .xl\:hover\:bg-reddit:hover {
+    --bg-opacity: 1;
+    background-color: #FF5700;
+    background-color: rgba(255, 87, 0, var(--bg-opacity));
+  }
+
+  .xl\:hover\:bg-twitter:hover {
+    background-color: #1da1f;
+  }
+
+  .xl\:hover\:bg-linkedin:hover {
+    --bg-opacity: 1;
+    background-color: #0e76a8;
+    background-color: rgba(14, 118, 168, var(--bg-opacity));
+  }
+
+  .xl\:hover\:bg-youtube:hover {
+    --bg-opacity: 1;
+    background-color: #c4302b;
+    background-color: rgba(196, 48, 43, var(--bg-opacity));
+  }
+
   .xl\:hover\:bg-primary-500:hover {
     --bg-opacity: 1;
     background-color: #FF6B1A;
@@ -75485,6 +77611,34 @@ a :hover {
     --bg-opacity: 1;
     background-color: #702459;
     background-color: rgba(112, 36, 89, var(--bg-opacity));
+  }
+
+  .xl\:focus\:bg-facebook:focus {
+    --bg-opacity: 1;
+    background-color: #3b5998;
+    background-color: rgba(59, 89, 152, var(--bg-opacity));
+  }
+
+  .xl\:focus\:bg-reddit:focus {
+    --bg-opacity: 1;
+    background-color: #FF5700;
+    background-color: rgba(255, 87, 0, var(--bg-opacity));
+  }
+
+  .xl\:focus\:bg-twitter:focus {
+    background-color: #1da1f;
+  }
+
+  .xl\:focus\:bg-linkedin:focus {
+    --bg-opacity: 1;
+    background-color: #0e76a8;
+    background-color: rgba(14, 118, 168, var(--bg-opacity));
+  }
+
+  .xl\:focus\:bg-youtube:focus {
+    --bg-opacity: 1;
+    background-color: #c4302b;
+    background-color: rgba(196, 48, 43, var(--bg-opacity));
   }
 
   .xl\:focus\:bg-primary-500:focus {
@@ -76211,6 +78365,34 @@ a :hover {
     border-color: rgba(112, 36, 89, var(--border-opacity));
   }
 
+  .xl\:border-facebook {
+    --border-opacity: 1;
+    border-color: #3b5998;
+    border-color: rgba(59, 89, 152, var(--border-opacity));
+  }
+
+  .xl\:border-reddit {
+    --border-opacity: 1;
+    border-color: #FF5700;
+    border-color: rgba(255, 87, 0, var(--border-opacity));
+  }
+
+  .xl\:border-twitter {
+    border-color: #1da1f;
+  }
+
+  .xl\:border-linkedin {
+    --border-opacity: 1;
+    border-color: #0e76a8;
+    border-color: rgba(14, 118, 168, var(--border-opacity));
+  }
+
+  .xl\:border-youtube {
+    --border-opacity: 1;
+    border-color: #c4302b;
+    border-color: rgba(196, 48, 43, var(--border-opacity));
+  }
+
   .xl\:border-primary-500 {
     --border-opacity: 1;
     border-color: #FF6B1A;
@@ -76795,6 +78977,34 @@ a :hover {
     border-color: rgba(112, 36, 89, var(--border-opacity));
   }
 
+  .xl\:hover\:border-facebook:hover {
+    --border-opacity: 1;
+    border-color: #3b5998;
+    border-color: rgba(59, 89, 152, var(--border-opacity));
+  }
+
+  .xl\:hover\:border-reddit:hover {
+    --border-opacity: 1;
+    border-color: #FF5700;
+    border-color: rgba(255, 87, 0, var(--border-opacity));
+  }
+
+  .xl\:hover\:border-twitter:hover {
+    border-color: #1da1f;
+  }
+
+  .xl\:hover\:border-linkedin:hover {
+    --border-opacity: 1;
+    border-color: #0e76a8;
+    border-color: rgba(14, 118, 168, var(--border-opacity));
+  }
+
+  .xl\:hover\:border-youtube:hover {
+    --border-opacity: 1;
+    border-color: #c4302b;
+    border-color: rgba(196, 48, 43, var(--border-opacity));
+  }
+
   .xl\:hover\:border-primary-500:hover {
     --border-opacity: 1;
     border-color: #FF6B1A;
@@ -77377,6 +79587,34 @@ a :hover {
     --border-opacity: 1;
     border-color: #702459;
     border-color: rgba(112, 36, 89, var(--border-opacity));
+  }
+
+  .xl\:focus\:border-facebook:focus {
+    --border-opacity: 1;
+    border-color: #3b5998;
+    border-color: rgba(59, 89, 152, var(--border-opacity));
+  }
+
+  .xl\:focus\:border-reddit:focus {
+    --border-opacity: 1;
+    border-color: #FF5700;
+    border-color: rgba(255, 87, 0, var(--border-opacity));
+  }
+
+  .xl\:focus\:border-twitter:focus {
+    border-color: #1da1f;
+  }
+
+  .xl\:focus\:border-linkedin:focus {
+    --border-opacity: 1;
+    border-color: #0e76a8;
+    border-color: rgba(14, 118, 168, var(--border-opacity));
+  }
+
+  .xl\:focus\:border-youtube:focus {
+    --border-opacity: 1;
+    border-color: #c4302b;
+    border-color: rgba(196, 48, 43, var(--border-opacity));
   }
 
   .xl\:focus\:border-primary-500:focus {
@@ -82868,6 +85106,118 @@ a :hover {
     color: rgba(112, 36, 89, var(--placeholder-opacity));
   }
 
+  .xl\:placeholder-facebook::-moz-placeholder {
+    --placeholder-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--placeholder-opacity));
+  }
+
+  .xl\:placeholder-facebook:-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--placeholder-opacity));
+  }
+
+  .xl\:placeholder-facebook::-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--placeholder-opacity));
+  }
+
+  .xl\:placeholder-facebook::placeholder {
+    --placeholder-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--placeholder-opacity));
+  }
+
+  .xl\:placeholder-reddit::-moz-placeholder {
+    --placeholder-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--placeholder-opacity));
+  }
+
+  .xl\:placeholder-reddit:-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--placeholder-opacity));
+  }
+
+  .xl\:placeholder-reddit::-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--placeholder-opacity));
+  }
+
+  .xl\:placeholder-reddit::placeholder {
+    --placeholder-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--placeholder-opacity));
+  }
+
+  .xl\:placeholder-twitter::-moz-placeholder {
+    color: #1da1f;
+  }
+
+  .xl\:placeholder-twitter:-ms-input-placeholder {
+    color: #1da1f;
+  }
+
+  .xl\:placeholder-twitter::-ms-input-placeholder {
+    color: #1da1f;
+  }
+
+  .xl\:placeholder-twitter::placeholder {
+    color: #1da1f;
+  }
+
+  .xl\:placeholder-linkedin::-moz-placeholder {
+    --placeholder-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--placeholder-opacity));
+  }
+
+  .xl\:placeholder-linkedin:-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--placeholder-opacity));
+  }
+
+  .xl\:placeholder-linkedin::-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--placeholder-opacity));
+  }
+
+  .xl\:placeholder-linkedin::placeholder {
+    --placeholder-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--placeholder-opacity));
+  }
+
+  .xl\:placeholder-youtube::-moz-placeholder {
+    --placeholder-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--placeholder-opacity));
+  }
+
+  .xl\:placeholder-youtube:-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--placeholder-opacity));
+  }
+
+  .xl\:placeholder-youtube::-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--placeholder-opacity));
+  }
+
+  .xl\:placeholder-youtube::placeholder {
+    --placeholder-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--placeholder-opacity));
+  }
+
   .xl\:placeholder-primary-500::-moz-placeholder {
     --placeholder-opacity: 1;
     color: #FF6B1A;
@@ -85204,6 +87554,118 @@ a :hover {
     color: rgba(112, 36, 89, var(--placeholder-opacity));
   }
 
+  .xl\:focus\:placeholder-facebook:focus::-moz-placeholder {
+    --placeholder-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--placeholder-opacity));
+  }
+
+  .xl\:focus\:placeholder-facebook:focus:-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--placeholder-opacity));
+  }
+
+  .xl\:focus\:placeholder-facebook:focus::-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--placeholder-opacity));
+  }
+
+  .xl\:focus\:placeholder-facebook:focus::placeholder {
+    --placeholder-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--placeholder-opacity));
+  }
+
+  .xl\:focus\:placeholder-reddit:focus::-moz-placeholder {
+    --placeholder-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--placeholder-opacity));
+  }
+
+  .xl\:focus\:placeholder-reddit:focus:-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--placeholder-opacity));
+  }
+
+  .xl\:focus\:placeholder-reddit:focus::-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--placeholder-opacity));
+  }
+
+  .xl\:focus\:placeholder-reddit:focus::placeholder {
+    --placeholder-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--placeholder-opacity));
+  }
+
+  .xl\:focus\:placeholder-twitter:focus::-moz-placeholder {
+    color: #1da1f;
+  }
+
+  .xl\:focus\:placeholder-twitter:focus:-ms-input-placeholder {
+    color: #1da1f;
+  }
+
+  .xl\:focus\:placeholder-twitter:focus::-ms-input-placeholder {
+    color: #1da1f;
+  }
+
+  .xl\:focus\:placeholder-twitter:focus::placeholder {
+    color: #1da1f;
+  }
+
+  .xl\:focus\:placeholder-linkedin:focus::-moz-placeholder {
+    --placeholder-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--placeholder-opacity));
+  }
+
+  .xl\:focus\:placeholder-linkedin:focus:-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--placeholder-opacity));
+  }
+
+  .xl\:focus\:placeholder-linkedin:focus::-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--placeholder-opacity));
+  }
+
+  .xl\:focus\:placeholder-linkedin:focus::placeholder {
+    --placeholder-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--placeholder-opacity));
+  }
+
+  .xl\:focus\:placeholder-youtube:focus::-moz-placeholder {
+    --placeholder-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--placeholder-opacity));
+  }
+
+  .xl\:focus\:placeholder-youtube:focus:-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--placeholder-opacity));
+  }
+
+  .xl\:focus\:placeholder-youtube:focus::-ms-input-placeholder {
+    --placeholder-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--placeholder-opacity));
+  }
+
+  .xl\:focus\:placeholder-youtube:focus::placeholder {
+    --placeholder-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--placeholder-opacity));
+  }
+
   .xl\:focus\:placeholder-primary-500:focus::-moz-placeholder {
     --placeholder-opacity: 1;
     color: #FF6B1A;
@@ -86295,6 +88757,34 @@ a :hover {
     color: rgba(112, 36, 89, var(--text-opacity));
   }
 
+  .xl\:text-facebook {
+    --text-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--text-opacity));
+  }
+
+  .xl\:text-reddit {
+    --text-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--text-opacity));
+  }
+
+  .xl\:text-twitter {
+    color: #1da1f;
+  }
+
+  .xl\:text-linkedin {
+    --text-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--text-opacity));
+  }
+
+  .xl\:text-youtube {
+    --text-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--text-opacity));
+  }
+
   .xl\:text-primary-500 {
     --text-opacity: 1;
     color: #FF6B1A;
@@ -86879,6 +89369,34 @@ a :hover {
     color: rgba(112, 36, 89, var(--text-opacity));
   }
 
+  .xl\:hover\:text-facebook:hover {
+    --text-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--text-opacity));
+  }
+
+  .xl\:hover\:text-reddit:hover {
+    --text-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--text-opacity));
+  }
+
+  .xl\:hover\:text-twitter:hover {
+    color: #1da1f;
+  }
+
+  .xl\:hover\:text-linkedin:hover {
+    --text-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--text-opacity));
+  }
+
+  .xl\:hover\:text-youtube:hover {
+    --text-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--text-opacity));
+  }
+
   .xl\:hover\:text-primary-500:hover {
     --text-opacity: 1;
     color: #FF6B1A;
@@ -87461,6 +89979,34 @@ a :hover {
     --text-opacity: 1;
     color: #702459;
     color: rgba(112, 36, 89, var(--text-opacity));
+  }
+
+  .xl\:focus\:text-facebook:focus {
+    --text-opacity: 1;
+    color: #3b5998;
+    color: rgba(59, 89, 152, var(--text-opacity));
+  }
+
+  .xl\:focus\:text-reddit:focus {
+    --text-opacity: 1;
+    color: #FF5700;
+    color: rgba(255, 87, 0, var(--text-opacity));
+  }
+
+  .xl\:focus\:text-twitter:focus {
+    color: #1da1f;
+  }
+
+  .xl\:focus\:text-linkedin:focus {
+    --text-opacity: 1;
+    color: #0e76a8;
+    color: rgba(14, 118, 168, var(--text-opacity));
+  }
+
+  .xl\:focus\:text-youtube:focus {
+    --text-opacity: 1;
+    color: #c4302b;
+    color: rgba(196, 48, 43, var(--text-opacity));
   }
 
   .xl\:focus\:text-primary-500:focus {

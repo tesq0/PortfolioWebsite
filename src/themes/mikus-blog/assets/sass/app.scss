@@ -41,6 +41,26 @@ a {
  */
 @tailwind components;
 
+.pagination {
+
+		@apply flex;
+
+		li > a, li > span {
+
+				@apply text-center block w-8 h-8 border pt-px;
+				
+		}
+
+		li:not(:last-child) {
+				@apply mr-2;
+		}
+
+		li.active > span {
+				@apply bg-blue-500 text-white;
+		}
+		
+}
+
 /**
  * Here you would add any of your custom component classes; stuff that you'd
  * want loaded *before* the utilities so that the utilities could still

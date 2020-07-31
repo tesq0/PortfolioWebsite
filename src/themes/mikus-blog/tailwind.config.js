@@ -7,6 +7,11 @@ module.exports = {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
 			colors: {
+				facebook: "#3b5998",
+				reddit: "#FF5700",
+				twitter: "#1da1f",
+				linkedin: "#0e76a8",
+				youtube: "#c4302b",
 				primary: {
 					500: "#FF6B1A",
 					600: "#FF5A00",
