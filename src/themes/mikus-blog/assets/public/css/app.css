@@ -703,15 +703,15 @@ input:invalid, textarea:invalid, select:invalid {
 }
 
 h1 {
-  font-size: 1.5rem;
+  font-size: 4rem;
 }
 
 h2 {
-  font-size: 1.25rem;
+  font-size: 2.25rem;
 }
 
 h3 {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
 }
 
 a {
@@ -1006,6 +1006,10 @@ a :hover {
   border-color: #63b3ed;
 }
 
+[x-cloak] {
+  display: none;
+}
+
 .link {
   --text-opacity: 1;
   color: #000;
@@ -1026,6 +1030,19 @@ a :hover {
   --text-opacity: 1;
   color: #000;
   color: rgba(0, 0, 0, var(--text-opacity));
+}
+
+.link-white {
+  --text-opacity: 1;
+  color: #fff;
+  color: rgba(255, 255, 255, var(--text-opacity));
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.link-white:hover {
+  font-weight: 700;
 }
 
 .pagination {

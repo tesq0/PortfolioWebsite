@@ -1,6 +1,29 @@
-<header class="w-full px-6 py-8 h-32 z-10 flex flex-col sm:flex-row justify-between sm:items-center">
+==
+<?
+	function onStart() {
+		$this['color'] = $this['color'] ?? "black";
+		$color = $this['color'];
+
+		switch ($color) {
+
+			case "black":
+				$this['logo_css'] = "text-black";
+				$this['link_css'] = "link-black";
+				break;
+				
+			case "white":
+				$this['logo_css'] = "text-white";
+				$this['link_css'] = "link-white";
+				break;
+				
+		}	
+		
+	}
+?>
+==
+<header class="w-full px-12 py-8 h-32 z-10 flex flex-col sm:flex-row justify-between sm:items-center">
 	<div class="">
-		<a class="no-underline text-black font-bold text-2xl" href="{{ 'home'|page }}">
+		<a class="no-underline {{ logo_css }} font-bold text-2xl" href="{{ 'home'|page }}">
 			{{ this.theme.short_name }}
 		</a>
 	</div>
@@ -8,7 +31,7 @@
 		<div class="">
 		</div>
 		<div class="sm:ml-2">
-			<a class="link link-gray text-lg font-medium" href="{{ 'blog'|page }}">
+			<a class="link {{ link_css }} text-lg font-medium" href="{{ 'blog'|page }}">
 				BLOG
 			</a>
 		</div>

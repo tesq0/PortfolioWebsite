@@ -48,7 +48,7 @@ class ColumnMatrix {
 
 		let newYOffset = this.rowOffset + 1;
 
-		if ( (newYOffset + this.characters.length) > currentMaxRows ) {
+		if ( newYOffset > currentMaxRows ) {
 
 			newYOffset = -1 * this.characters.length;
 
@@ -148,5 +148,11 @@ const drawMatrix = () => {
 
 };
 
-drawMatrix();
-/* setInterval(drawMatrix, 1000); */
+const canvas = document.getElementById("matrix-canvas");
+
+if (canvas != null) {
+	/* drawMatrix(); */
+	setInterval(drawMatrix, 100);
+}
+
+

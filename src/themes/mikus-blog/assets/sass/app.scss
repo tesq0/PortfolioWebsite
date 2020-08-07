@@ -19,13 +19,13 @@ input:invalid, textarea:invalid, select:invalid {
 }
 
 h1 {
-		@apply text-2xl;
+		@apply text-6xl;
 }
 h2 {
-		@apply text-xl;
+		@apply text-4xl;
 }
 h3 {
-		@apply text-lg;
+		@apply text-xl;
 }
 
 a {
@@ -41,6 +41,8 @@ a {
  */
 @tailwind components;
 
+[x-cloak] { display: none; }
+
 .link {
 		@apply text-black no-underline;
 		&-gray {
@@ -49,6 +51,13 @@ a {
 						@apply text-black;
 				}
 		}
+		&-white {
+				@apply text-white transition-colors duration-300 ease-in-out;
+				&:hover {
+						@apply font-bold;
+				}
+		}
+		
 }
 
 .pagination {

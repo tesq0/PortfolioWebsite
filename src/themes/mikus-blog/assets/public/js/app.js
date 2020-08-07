@@ -138,7 +138,7 @@ var ColumnMatrix = /*#__PURE__*/function () {
     value: function move() {
       var newYOffset = this.rowOffset + 1;
 
-      if (newYOffset + this.characters.length > currentMaxRows) {
+      if (newYOffset > currentMaxRows) {
         newYOffset = -1 * this.characters.length;
       }
 
@@ -234,8 +234,12 @@ var drawMatrix = function drawMatrix() {
   }
 };
 
-drawMatrix();
-/* setInterval(drawMatrix, 1000); */
+var canvas = document.getElementById("matrix-canvas");
+
+if (canvas != null) {
+  /* drawMatrix(); */
+  setInterval(drawMatrix, 100);
+}
 
 /***/ }),
 

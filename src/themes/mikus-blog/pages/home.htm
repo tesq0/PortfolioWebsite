@@ -12,63 +12,124 @@ categoryPage = "blog/tag"
 postPage = "blog/post"
 
 ==
-<div class="fixed text-white inset-0">
+<div class="fixed text-white inset-0 flex justify-center">
 	
-	<div class="absolute z-10 w-full">
+	<div x-init="init()" x-data="fixedPage()" style="max-width: 1240px" class="absolute z-10 w-full">
 
-		{% partial 'header' %}
+		<div x-spread="start">
+			{% partial "header" color="white" %}
 
-		<div class="flex flex-col lg:flex-row w-full lg:h-screen lg:pt-32 lg:-mt-32">
+			<div class="px-12 flex flex-col lg:flex-row w-full lg:h-screen lg:pt-32 lg:-mt-32 justify-between">
 
-			<div class="flex flex-col max-w-xl mt-auto mb-8">
-				<a href="{{ 'home'|page }}">
-				</a>
-				<div class="flex-1 mt-4">
-					<h1 class="leading-none font-extrabold text-6xl">I'm {{ this.theme.name }}</h1>
-					<div class="mt-2">
-
-						<div class="mt-8">
-							<p class="">{{ this.theme.whoami }}</p>
-							<div class="">
-								{% for paragraph in this.theme.whoami_more %}
-								<p class="mt-4"> {{ paragraph.text }} </p>
-								{% endfor %}
+				<div class="flex flex-col max-w-xl mt-auto mb-16">
+					<a href="{{ 'home'|page }}">
+					</a>
+					<div class="flex-1 mt-4">
+						<h1 class="leading-none font-extrabold text-4xl sm:text-6xl">I'm {{ this.theme.name }}</h1>
+						<div class="mt-2">
+							<div class="mt-8 text-2xl">
+								<p class="">{{ this.theme.whoami }}</p>
+								<div class="">
+									{% for paragraph in this.theme.whoami_more %}
+									<p class="mt-4"> {{ paragraph.text }} </p>
+									{% endfor %}
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+				
 			</div>
-			
-			<div class="mt-4 lg:mt-0 md:ml-8 bg-white rounded p-4 text-black">
-				<h3 class="text-center">Recent Blog Posts</h3>
+		</div>
 
-				<ul class=" mt-2">
+		<div x-spread="footer" class="flex h-screen justify-center items-center">
 
-					{% for post in recentBlogPosts.posts %}
-
-					<li class="flex">
-						<div>
-							{{ post.published_at|date('M d, Y') }}
-						</div>
-						<h4 class="ml-2">
-							<a href="{{ post.url }}">{{ post.title }}</a>
-						</h4>
-					</li>
-
-					{% endfor %}
-
-				</ul>
+			<div class="text-center">
+				<h2 class="font-bold" >Contact me:</h2>
+				<h3><a class="link link-white" href="mailto:{{ this.theme.contact }}">{{this.theme.contact}}</a></h3>
 			</div>
 			
 		</div>
+		
+		
 	</div>
 	
 	<canvas id="matrix-canvas" class="absolute inset-0 w-full h-full"></canvas>
 	
 </div>
 
-<div style="top: 100vh; bottom: 100vh;" class="mt-8 bg-white h-screen relative">
-	Projects
+<div style="margin: 100vh 0;" class="bg-white h-screen relative">
+
+	<div style="max-width: 1240px;" class="py-8 px-12 mx-auto">
+		<div class="py-6 mt-16">
+			<h2 class="font-bold"> Projects </h2>
+
+			<div class="mt-8">
+				My projects
+			</div>
+			
+		</div>
+		
+		<div class="py-6 mt-16">
+			<h2 class="font-bold">Recent Blog Posts</h2>
+
+			<ul class="mt-8">
+
+				{% for post in recentBlogPosts.posts %}
+
+				<li class="flex">
+					<div>
+						{{ post.published_at|date('M d, Y') }}
+					</div>
+					<h4 class="ml-2">
+						<a href="{{ post.url }}">{{ post.title }}</a>
+					</h4>
+				</li>
+
+				{% endfor %}
+
+			</ul>
+		</div>
+	</div>
+	
 </div>
 
+<script>
 
+ function fixedPage() {
+	 return {
+		 showStart: true,
+		 showFooter: false,
+		 onScroll(event) {
+			 let el = event.target.scrollingElement;
+			 if (el.scrollTop > window.innerHeight) {
+				 if (this.showFooter == false) {
+					 this.showStart = false;
+					 this.showFooter = true;
+				 }
+			 }
+			 else {
+				 if (this.showFooter == true) {
+					 this.showStart = true;
+					 this.showFooter = false;
+				 }
+			 }
+		 },
+		 init() {
+			 document.addEventListener("scroll", this.onScroll.bind(this));
+		 },
+		 start: {
+			 ['x-show']() {
+				 return this.showStart;
+			 }
+		 },
+		 footer: {
+			 ['x-show']() {
+				 return this.showFooter;
+			 },
+			 ['x-cloak']() { }
+		 }
+	 }
+ }
+ 
+</script>
