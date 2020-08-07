@@ -97,7 +97,38 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
 /* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(alpinejs__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _matrix_effect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./matrix-effect */ "./assets/js/matrix-effect.js");
+/* harmony import */ var _matrix_effect__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_matrix_effect__WEBPACK_IMPORTED_MODULE_1__);
 
+
+
+/***/ }),
+
+/***/ "./assets/js/matrix-effect.js":
+/*!************************************!*\
+  !*** ./assets/js/matrix-effect.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var c = document.getElementById("matrix-canvas");
+var ctx = c.getContext("2d");
+var COLUMN_PX_WIDTH = 10;
+
+var drawMatrix = function drawMatrix() {
+  var screenWidth = window.innerWidth;
+  var screenHeight = window.innerHeight; // Draw the background
+
+  ctx.fillStyle = "rgba(0, 0 ,0 , .04)";
+  ctx.fillRect(0, 0, width, height);
+  ctx.fillStyle = "#0f0"; // Draw the letters
+
+  var columnCount = screenWidth / COLUMN_PX_WIDTH;
+
+  for (i = 0; i < columnCount; i++) {}
+};
+
+setInterval(drawMatrix, 30);
 
 /***/ }),
 
@@ -1986,8 +2017,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /var/www/html/themes/mikus-blog/assets/js/app.js */"./assets/js/app.js");
-module.exports = __webpack_require__(/*! /var/www/html/themes/mikus-blog/assets/sass/app.scss */"./assets/sass/app.scss");
+__webpack_require__(/*! /home/mikus/Projects/MikusBlog/src/themes/mikus-blog/assets/js/app.js */"./assets/js/app.js");
+module.exports = __webpack_require__(/*! /home/mikus/Projects/MikusBlog/src/themes/mikus-blog/assets/sass/app.scss */"./assets/sass/app.scss");
 
 
 /***/ })

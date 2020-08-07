@@ -1006,6 +1006,28 @@ a :hover {
   border-color: #63b3ed;
 }
 
+.link {
+  --text-opacity: 1;
+  color: #000;
+  color: rgba(0, 0, 0, var(--text-opacity));
+  text-decoration: none;
+}
+
+.link-gray {
+  --text-opacity: 1;
+  color: #4a5568;
+  color: rgba(74, 85, 104, var(--text-opacity));
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.link-gray:hover {
+  --text-opacity: 1;
+  color: #000;
+  color: rgba(0, 0, 0, var(--text-opacity));
+}
+
 .pagination {
   display: flex;
 }

@@ -41,6 +41,16 @@ a {
  */
 @tailwind components;
 
+.link {
+		@apply text-black no-underline;
+		&-gray {
+				@apply text-gray-700 transition-colors duration-300 ease-in-out;
+				&:hover {
+						@apply text-black;
+				}
+		}
+}
+
 .pagination {
 
 		@apply flex;

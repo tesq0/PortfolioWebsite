@@ -1,14 +1,62 @@
-title = "Recent Blog Posts"
+title = "Home"
 url = "/"
 layout = "default"
 is_hidden = 0
 
-[blogPosts]
-pageNumber = "{{ :page }}"
-postsPerPage = 10
-noPostsMessage = "No posts found!"
+[blogPosts recentBlogPosts]
+pageNumber = 1
+postsPerPage = 5
+noPostsMessage = "No posts found"
 sortOrder = "published_at desc"
 categoryPage = "blog/tag"
 postPage = "blog/post"
+
 ==
-{% partial 'blogPostsList' %}
+
+<div class="flex flex-col lg:flex-row lg:h-screen lg:pt-32 lg:-mt-32">
+	<div class="flex flex-col max-w-xl mt-auto mb-8">
+		<a href="{{ 'home'|page }}">
+		</a>
+		<div class="flex-1 mt-4">
+			<h1 class="leading-none font-extrabold text-6xl">I'm {{ this.theme.name }}</h1>
+			<div class="mt-2">
+
+				<div class="mt-8">
+					<p class="">{{ this.theme.whoami }}</p>
+					<div class="text-gray-700">
+						{% for paragraph in this.theme.whoami_more %}
+						<p class="mt-4"> {{ paragraph.text }} </p>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="mt-4 lg:mt-0 md:ml-8">
+		<h3 class="text-center">Recent Blog Posts</h3>
+
+		<ul class="text-gray-600 mt-2">
+
+			{% for post in recentBlogPosts.posts %}
+
+			<li class="flex">
+				<div>
+					{{ post.published_at|date('M d, Y') }}
+				</div>
+				<h4 class="ml-2">
+					<a href="{{ post.url }}">{{ post.title }}</a>
+				</h4>
+			</li>
+
+			{% endfor %}
+
+		</ul>
+	</div>
+
+	<canvas id="matrix-canvas" class="fixed inset-0 h-full w-full"></canvas>
+	
+</div>
+
+<div class="mt-8">Projects</div>
+

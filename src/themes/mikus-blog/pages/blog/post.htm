@@ -1,8 +1,7 @@
 title = "Blog Post"
-url = "/:slug"
+url = "/blog/:slug"
 layout = "default"
-description = ""
-hidden = "0"
+is_hidden = 0
 
 [blogPost]
 slug = "{{ :slug }}"
@@ -27,7 +26,13 @@ function onEnd()
 ==
 {% set post = blogPost.post %}
 
-<article class="bg-white rounded shadow p-4" itemscope itemtype="https://schema.org/BlogPosting">
+<div class="flex flex-col items-center text-center">
+	<h1 class="">
+		<a href="{{ 'blog'|page }}">Blog/</a>Post/{{ this.page.title }}
+	</h1>
+</div>
+
+<article class="mt-2 bg-white rounded shadow p-4" itemscope itemtype="https://schema.org/BlogPosting">
 
   <header class="">
 

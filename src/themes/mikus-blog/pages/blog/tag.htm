@@ -1,13 +1,12 @@
 title = "Blog Category"
-url = "/tag/:slug/:page?"
+url = "/blog/tag/:slug/:page?"
 layout = "default"
-description = ""
-hidden = "0"
+is_hidden = 0
 
 [blogPosts]
 pageNumber = "{{ :page }}"
 categoryFilter = "{{ :slug }}"
-postsPerPage = "10"
+postsPerPage = 10
 noPostsMessage = "No posts found!"
 sortOrder = "published_at desc"
 categoryPage = "blog/tag"
@@ -26,4 +25,11 @@ function onEnd()
 }
 ?>
 ==
-{% partial 'blogPostsList' %}
+
+<div class="flex flex-col items-center text-center">
+	<h1 class="">
+		<a href="{{ 'blog'|page }}">Blog/</a>Category/{{ this.page.title }}
+	</h1>
+</div>
+
+{% partial 'blog/blogPostsList' %}

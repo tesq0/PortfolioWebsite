@@ -1,4 +1,18 @@
-description = "Default layout"
+description = "Blog layout"
+
+[blogPosts recentBlogPosts]
+pageNumber = 1
+postsPerPage = 5
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog/tag"
+postPage = "blog/post"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "blog/tag"
+
 ==
 <!DOCTYPE html>
 <html class="h-full" lang="{{ this.theme.meta_lang }}">
@@ -18,47 +32,46 @@ description = "Default layout"
     <meta property="og:description" content="{{ description }}">
 
     {% if metaImage %}
-    <meta property="og:image" content="{{ metaImage }}">
-    <link rel="image_src" href="{{ metaImage }}">
+      <meta property="og:image" content="{{ metaImage }}">
+      <link rel="image_src" href="{{ metaImage }}">
     {% endif %}
 
     <meta name="canonical" content="{{ ''|page }}">
 
     {% if this.theme.meta_author %}
-    <meta name="author" content="{{ this.theme.meta_author }}">
+      <meta name="author" content="{{ this.theme.meta_author }}">
     {% endif %}
 
     {% if this.theme.meta_icon %}
-		<link rel="icon" type="image/png" sizes="16x16" href="{{this.theme.meta_icon}}" />
+			<link rel="icon" type="image/png" sizes="16x16" href="{{this.theme.meta_icon}}" />
 		{% endif %}
 
 		<link rel="stylesheet" href="{{ 'assets/public/css/app.css'|theme }}">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 		{% styles %}
   </head>
-	<body class="h-full overflow-y-auto bg-gray-200">
+	<body class="h-full overflow-y-auto bg-gray-200" x-data="{ sidebarOpen: false }">
+		
+		<div style="max-width: 990px" class="flex w-full h-full mx-auto">
 
-		<div style="max-width: 1240px " class="mx-auto h-full flex flex-col" >
-			{% partial 'header' %}
+			{% partial 'blog/sidebar' %}
 
-			<div class="flex flex-col flex-1 w-full px-6">
-				{% page %}
+			<div class="flex-1 lg:ml-64">
+				
+				{% partial 'header' %}
+				
+				<div class="p-4">
 
-				<footer>
-					<ul class="">
-						{% for btn in this.theme.social_buttons %}
+					{% page %}
 
-						<li>
-							<a target="_blank" class="fa-{{ btn.fa }} pt-px text-xl text-white w-8 h-8 inline-block text-center no-underline rounded-full" href="{{ btn.href }}" style="background-color: {{ btn.color }};"></a>
-						</li>
+				</div>
 
-						{% endfor %}
-					</ul>
-				</footer>
 			</div>
-			
-			<script src="{{ 'assets/public/js/app.js'|theme }}"></script>
-			{{ scripts }}
+
+		</div>
+
+    <script src="{{ 'assets/public/js/app.js'|theme }}"></script>
+    {{ scripts }}
 
   </body>
 </html>

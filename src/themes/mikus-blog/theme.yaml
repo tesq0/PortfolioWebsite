@@ -15,7 +15,13 @@ form:
             name:
                 label: Blog Name
                 comment: The name of the blog, or your own name. This is displayed in the menu section and page titles.
-                default: Mr. Foo Bar
+                default: Foo Bar
+                tab: General
+
+            short_name:
+                label: Short Name
+                comment: Short name of the site to show in the header
+                default: FB
                 tab: General
 
             avatar:
@@ -35,7 +41,20 @@ form:
                 size: tiny
                 default: ''
                 tab: General
+
+            whoami_more:
+                label: More about me
+                comment: The text under "Who am I?". Each item will be separated
+                type: repeater
+                tab: General
+                form:
+                    fields:
+                      text:
+                        label: text
+                        size: tiny
+                        type: textarea
                 
+
             #
             # Social Buttons tab.
             #
