@@ -1,6 +1,6 @@
 title = "Home"
 url = "/"
-layout = "default"
+layout = "blank"
 is_hidden = 0
 
 [blogPosts recentBlogPosts]
@@ -12,51 +12,63 @@ categoryPage = "blog/tag"
 postPage = "blog/post"
 
 ==
+<div class="fixed text-white inset-0">
+	
+	<div class="absolute z-10 w-full">
 
-<div class="flex flex-col lg:flex-row lg:h-screen lg:pt-32 lg:-mt-32">
-	<div class="flex flex-col max-w-xl mt-auto mb-8">
-		<a href="{{ 'home'|page }}">
-		</a>
-		<div class="flex-1 mt-4">
-			<h1 class="leading-none font-extrabold text-6xl">I'm {{ this.theme.name }}</h1>
-			<div class="mt-2">
+		{% partial 'header' %}
 
-				<div class="mt-8">
-					<p class="">{{ this.theme.whoami }}</p>
-					<div class="text-gray-700">
-						{% for paragraph in this.theme.whoami_more %}
-						<p class="mt-4"> {{ paragraph.text }} </p>
-						{% endfor %}
+		<div class="flex flex-col lg:flex-row w-full lg:h-screen lg:pt-32 lg:-mt-32">
+
+			<div class="flex flex-col max-w-xl mt-auto mb-8">
+				<a href="{{ 'home'|page }}">
+				</a>
+				<div class="flex-1 mt-4">
+					<h1 class="leading-none font-extrabold text-6xl">I'm {{ this.theme.name }}</h1>
+					<div class="mt-2">
+
+						<div class="mt-8">
+							<p class="">{{ this.theme.whoami }}</p>
+							<div class="">
+								{% for paragraph in this.theme.whoami_more %}
+								<p class="mt-4"> {{ paragraph.text }} </p>
+								{% endfor %}
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
+			
+			<div class="mt-4 lg:mt-0 md:ml-8 bg-white rounded p-4 text-black">
+				<h3 class="text-center">Recent Blog Posts</h3>
+
+				<ul class=" mt-2">
+
+					{% for post in recentBlogPosts.posts %}
+
+					<li class="flex">
+						<div>
+							{{ post.published_at|date('M d, Y') }}
+						</div>
+						<h4 class="ml-2">
+							<a href="{{ post.url }}">{{ post.title }}</a>
+						</h4>
+					</li>
+
+					{% endfor %}
+
+				</ul>
+			</div>
+			
 		</div>
 	</div>
 	
-	<div class="mt-4 lg:mt-0 md:ml-8">
-		<h3 class="text-center">Recent Blog Posts</h3>
-
-		<ul class="text-gray-600 mt-2">
-
-			{% for post in recentBlogPosts.posts %}
-
-			<li class="flex">
-				<div>
-					{{ post.published_at|date('M d, Y') }}
-				</div>
-				<h4 class="ml-2">
-					<a href="{{ post.url }}">{{ post.title }}</a>
-				</h4>
-			</li>
-
-			{% endfor %}
-
-		</ul>
-	</div>
-
-	<canvas id="matrix-canvas" class="fixed inset-0 h-full w-full"></canvas>
+	<canvas id="matrix-canvas" class="absolute inset-0 w-full h-full"></canvas>
 	
 </div>
 
-<div class="mt-8">Projects</div>
+<div style="top: 100vh; bottom: 100vh;" class="mt-8 bg-white h-screen relative">
+	Projects
+</div>
+
 

@@ -111,24 +111,131 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var c = document.getElementById("matrix-canvas");
-var ctx = c.getContext("2d");
-var COLUMN_PX_WIDTH = 10;
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var COLUMN_PX_WIDTH = 20;
+var ROW_PX_HEIGHT = 20;
+var CHINESE_CHARACTERS = ['中', '文', '简', '繁', '体', '转', '换', '器', '-', '支', '持', '地', '方', '惯', '用', '词', '汇', '替', '换'];
+var currentMaxRows = 0;
+var columnMatrixes = new Map();
+
+var ColumnMatrix = /*#__PURE__*/function () {
+  function ColumnMatrix(rowOffset, characters) {
+    _classCallCheck(this, ColumnMatrix);
+
+    this.rowOffset = rowOffset;
+    this.characters = characters;
+    this.move = this.move.bind(this);
+    this.getData = this.getData.bind(this);
+  }
+
+  _createClass(ColumnMatrix, [{
+    key: "move",
+    value: function move() {
+      var newYOffset = this.rowOffset + 1;
+
+      if (newYOffset + this.characters.length > currentMaxRows) {
+        newYOffset = -1 * this.characters.length;
+      }
+
+      this.rowOffset = newYOffset;
+    }
+  }, {
+    key: "getData",
+    value: function getData() {
+      return {
+        rowOffset: this.rowOffset,
+        characters: this.characters
+      };
+    }
+  }], [{
+    key: "make",
+    value: function make() {
+      var characters = [];
+      var characterCount = Math.max(2, Math.floor(Math.random() * (currentMaxRows / 2)));
+      var rowOffset = Math.max(2, Math.floor(Math.random() * (currentMaxRows - characterCount)));
+
+      for (i = 0; i < characterCount; i++) {
+        var characterIdx = Math.floor(Math.random() * CHINESE_CHARACTERS.length);
+        var character = CHINESE_CHARACTERS[characterIdx];
+        characters.push(character);
+      }
+
+      return new ColumnMatrix(rowOffset, characters);
+    }
+  }]);
+
+  return ColumnMatrix;
+}();
+
+var getOrInitColumnMatrix = function getOrInitColumnMatrix(columnIndex) {
+  key = columnIndex.toString();
+  var obj = columnMatrixes.get(key);
+
+  if (obj == undefined) {
+    obj = ColumnMatrix.make();
+    columnMatrixes.set(key, obj);
+  }
+
+  return obj;
+};
 
 var drawMatrix = function drawMatrix() {
   var screenWidth = window.innerWidth;
-  var screenHeight = window.innerHeight; // Draw the background
+  var screenHeight = window.innerHeight;
+  var c = document.getElementById("matrix-canvas");
+  var ctx = c.getContext("2d");
+  c.width = screenWidth;
+  c.height = screenHeight; // Draw the background
 
-  ctx.fillStyle = "rgba(0, 0 ,0 , .04)";
-  ctx.fillRect(0, 0, width, height);
-  ctx.fillStyle = "#0f0"; // Draw the letters
+  var gradient = ctx.createLinearGradient(0, 0, 0, 0.7 * screenHeight);
+  gradient.addColorStop(0, "rgba(0, 0, 0, 1)");
+  gradient.addColorStop(1, "rgba(0, 50, 0, 0.7)");
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, screenWidth, screenHeight);
+  /* console.log("h", screenHeight, "w", screenWidth); */
+  // Draw the letters
 
   var columnCount = screenWidth / COLUMN_PX_WIDTH;
+  var rowCount = screenHeight / ROW_PX_HEIGHT;
+  currentMaxRows = rowCount;
+  /* console.log("max rows", currentMaxRows); */
 
-  for (i = 0; i < columnCount; i++) {}
+  for (col = 0; col < columnCount; col++) {
+    var xPos = col * COLUMN_PX_WIDTH;
+    var columnMatrix = getOrInitColumnMatrix(col);
+
+    var _columnMatrix$getData = columnMatrix.getData(),
+        rowOffset = _columnMatrix$getData.rowOffset,
+        characters = _columnMatrix$getData.characters;
+
+    for (charIdx = 0; charIdx < characters.length; charIdx++) {
+      var yPos = rowOffset * ROW_PX_HEIGHT + charIdx * ROW_PX_HEIGHT;
+      ctx.fillStyle = "rgba(0, 255 ,0 , ".concat(Math.max(charIdx, 1) / characters.length, ")");
+      var padding = 5;
+      var rectWidth = COLUMN_PX_WIDTH - padding;
+      var rectHeight = ROW_PX_HEIGHT - padding;
+      var centerOut = padding / 2;
+      /* ctx.fillRect(
+      	 xPos + (centerOut),
+      	 yPos + (centerOut),
+      	 rectWidth , rectHeight
+      	 ); */
+
+      ctx.font = "".concat(ROW_PX_HEIGHT, "px Sans");
+      ctx.fillText(characters[charIdx], xPos, yPos);
+    }
+
+    columnMatrix.move();
+  }
 };
 
-setInterval(drawMatrix, 30);
+drawMatrix();
+/* setInterval(drawMatrix, 1000); */
 
 /***/ }),
 
@@ -2017,8 +2124,8 @@ setInterval(drawMatrix, 30);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/mikus/Projects/MikusBlog/src/themes/mikus-blog/assets/js/app.js */"./assets/js/app.js");
-module.exports = __webpack_require__(/*! /home/mikus/Projects/MikusBlog/src/themes/mikus-blog/assets/sass/app.scss */"./assets/sass/app.scss");
+__webpack_require__(/*! /var/www/html/themes/mikus-blog/assets/js/app.js */"./assets/js/app.js");
+module.exports = __webpack_require__(/*! /var/www/html/themes/mikus-blog/assets/sass/app.scss */"./assets/sass/app.scss");
 
 
 /***/ })
