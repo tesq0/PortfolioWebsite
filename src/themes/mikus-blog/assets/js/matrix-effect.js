@@ -51,6 +51,8 @@ class ColumnMatrix {
 
 	move(amount = 1) {
 
+		/* console.log("move ", amount); */
+
 		let newYOffset = this.rowOffset + amount;
 		
 		if ( newYOffset >= (currentMaxOffset + ROW_PX_HEIGHT) ) {
@@ -115,6 +117,7 @@ const drawMatrix = () => {
 	currentMaxRows = rowCount;
 	currentMaxOffset = rowCount * ROW_PX_HEIGHT;
 
+
 	for (col = 0 ; col < columnCount; col++) {
 
 		let xPos = col * COLUMN_PX_WIDTH;
@@ -176,30 +179,33 @@ function draw() {
 
 function render() {
 	
-	now = performance.now( );
-	deltaTime = ( now - then ) / 1000.0;
-	then = now;
-	draw();
+	if (document.hasFocus())
+	{
+		now = performance.now( );
+		deltaTime = ( now - then ) / 1000.0;
+		then = now;
+		draw();
 
-	activeAnimationFrame = requestAnimationFrame(render);
+		activeAnimationFrame = requestAnimationFrame(render);
+	}
 	
 }
 
 let activeAnimationFrame = null;
 
 function animate() {
-	activeAnimationFrame = requestAnimationFrame(render);
-}
-function stopAnimation() {
+
 	if (activeAnimationFrame !== null) {
 		cancelAnimationFrame(activeAnimationFrame);
 	}
+	then = performance.now();
+	activeAnimationFrame = requestAnimationFrame(render);
+
 }
 
 const canvas = document.getElementById("matrix-canvas");
 
 if (canvas != null) {
-	window.addEventListener('blur', stopAnimation);
 	window.addEventListener('focus', animate);
 	animate();
 }
