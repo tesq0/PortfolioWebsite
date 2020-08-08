@@ -5,12 +5,6 @@
     "type": "project",
     "keywords": ["october", "cms", "octobercms", "laravel"],
     "license": "MIT",
-	  "repositories": [
-	  	{
-	  		"type": "vcs",
-	  		"url": "https://github.com/panakour/oc-backup-plugin"
-	  	}
-	  ],
     "authors": [
         {
             "name": "Alexey Bobkov",
