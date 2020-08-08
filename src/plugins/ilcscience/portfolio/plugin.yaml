@@ -1,0 +1,6 @@
+plugin:
+    name: 'ilcscience.portfolio::lang.plugin.name'
+    description: 'ilcscience.portfolio::lang.plugin.description'
+    author: ILCScience
+    icon: oc-icon-briefcase
+    homepage: ''
