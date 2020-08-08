@@ -15,8 +15,10 @@ require("laravel-mix-tailwind");
 
 mix.setPublicPath('./assets/public/')
     .js('assets/js/app.js', 'js')
+    .js('assets/js/matrix-effect.js', 'js')
     .sass('assets/sass/app.scss', 'css')
 		.tailwind("./tailwind.config.js");
+
 
 // Full API
 // mix.js(src, output);

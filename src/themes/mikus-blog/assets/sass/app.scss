@@ -56,9 +56,12 @@ a {
 
 .link {
 		@apply text-black no-underline;
+		&:hover {
+				@apply underline;
+		}
 		&-black {
 				&:hover {
-						@apply underline text-black;
+						@apply text-black;
 				}
 		}
 		&-gray {
@@ -69,9 +72,6 @@ a {
 		}
 		&-white {
 				@apply text-white transition-colors duration-300 ease-in-out;
-				&:hover {
-						@apply font-bold;
-				}
 		}
 		
 }

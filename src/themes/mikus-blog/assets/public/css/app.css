@@ -1027,8 +1027,11 @@ a :hover {
   text-decoration: none;
 }
 
-.link-black:hover {
+.link:hover {
   text-decoration: underline;
+}
+
+.link-black:hover {
   --text-opacity: 1;
   color: #000;
   color: rgba(0, 0, 0, var(--text-opacity));
@@ -1056,10 +1059,6 @@ a :hover {
   transition-property: background-color, border-color, color, fill, stroke;
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.link-white:hover {
-  font-weight: 700;
 }
 
 .pagination {
