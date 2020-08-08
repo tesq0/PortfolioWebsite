@@ -1,9 +1,14 @@
 const COLUMN_PX_WIDTH = 20;
 const ROW_PX_HEIGHT = 20;
+const MOVE_SPEED = 50;
 
 const CHINESE_CHARACTERS = ['中','文','简','繁','体','转','换','器','-','支','持','地','方','惯','用','词','汇','替','换'];
 
 let currentMaxRows = 0;
+let currentMaxOffset = 0;
+
+let deltaTime = now = then = 0;
+
 const columnMatrixes = new Map();
 
 class ColumnMatrix {
@@ -30,7 +35,7 @@ class ColumnMatrix {
 		const rowOffset = Math.max(
 			2,
 			Math.floor( Math.random() * ( currentMaxRows - characterCount ) )
-		);
+		) * ROW_PX_HEIGHT;
 		
 		for (i = 0; i < characterCount; i++) {
 
@@ -44,16 +49,18 @@ class ColumnMatrix {
 		
 	}
 
-	move() {
+	move(amount = 1) {
 
-		let newYOffset = this.rowOffset + 1;
+		let newYOffset = this.rowOffset + amount;
+		
+		if ( newYOffset >= (currentMaxOffset + ROW_PX_HEIGHT) ) {
 
-		if ( newYOffset > currentMaxRows ) {
-
-			newYOffset = -1 * this.characters.length;
+			newYOffset = (-1 * this.characters.length) * ROW_PX_HEIGHT;
 
 		}
 
+		newYOffset = Math.ceil(newYOffset);
+		
 		this.rowOffset = newYOffset;
 		
 	}
@@ -98,17 +105,15 @@ const drawMatrix = () => {
 	gradient.addColorStop(1, "rgba(0, 50, 0, 0.7)");
 
 	ctx.fillStyle = gradient;
+	ctx.font = `${ROW_PX_HEIGHT}px Sans`;
 	ctx.fillRect(0, 0, screenWidth, screenHeight);
 
-	/* console.log("h", screenHeight, "w", screenWidth); */
-	
 	// Draw the letters
 	let columnCount = screenWidth / COLUMN_PX_WIDTH;
 	let rowCount = screenHeight / ROW_PX_HEIGHT;
 
 	currentMaxRows = rowCount;
-
-	/* console.log("max rows", currentMaxRows); */
+	currentMaxOffset = rowCount * ROW_PX_HEIGHT;
 
 	for (col = 0 ; col < columnCount; col++) {
 
@@ -116,43 +121,89 @@ const drawMatrix = () => {
 
 		const columnMatrix = getOrInitColumnMatrix(col);
 		const { rowOffset, characters } = columnMatrix.getData();
-		
+
+		let moveBy = deltaTime * MOVE_SPEED;
+		columnMatrix.move(moveBy);
+
 		for (charIdx = 0; charIdx < characters.length; charIdx++) {
 
-			let yPos = (rowOffset * ROW_PX_HEIGHT) + (charIdx * ROW_PX_HEIGHT);
+			let yPos = rowOffset + (charIdx * ROW_PX_HEIGHT);
 
-			ctx.fillStyle=`rgba(0, 255 ,0 , ${Math.max(charIdx, 1) / characters.length})`;
+			if (yPos < currentMaxOffset) {
+				ctx.fillStyle=`rgba(0, 255 ,0 , ${1 - (yPos / screenHeight)})`;
+				ctx.fillText(characters[charIdx], xPos, yPos);
+			}
 
+			/*
 			const padding = 5;
-
 			const rectWidth = COLUMN_PX_WIDTH - padding;
 			const rectHeight = ROW_PX_HEIGHT - padding;
-
 			const centerOut = padding / 2;
 
-			/* ctx.fillRect(
+			 ctx.fillRect(
 				 xPos + (centerOut),
 				 yPos + (centerOut),
 				 rectWidth , rectHeight
-				 ); */
-			
-			ctx.font = `${ROW_PX_HEIGHT}px Sans`;
-			ctx.fillText(characters[charIdx], xPos, yPos);
+			 );
+			*/
 			
 		}
-
-		columnMatrix.move();
 		
 	}
 
-
+	
 };
+
+const requestAnimationFrame = window.requestAnimationFrame ||
+															window.webkitRequestAnimationFrame ||
+															window.mozRequestAnimationFrame ||
+															window.oRequestAnimationFrame ||
+															window.msRequestAnimationFrame;
+
+
+var cancelAnimationFrame = window.cancelAnimationFrame ||
+        window.webkitCancelRequestAnimationFrame || 
+        window.webkitCancelAnimationFrame ||
+        window.mozCancelRequestAnimationFrame || window.mozCancelAnimationFrame ||
+        window.oCancelRequestAnimationFrame || window.oCancelAnimationFrame ||
+        window.msCancelRequestAnimationFrame || window.msCancelAnimationFrame;
+
+function draw() {
+	
+	drawMatrix();
+
+}
+
+function render() {
+	
+	now = performance.now( );
+	deltaTime = ( now - then ) / 1000.0;
+	then = now;
+	draw();
+
+	activeAnimationFrame = requestAnimationFrame(render);
+	
+}
+
+let activeAnimationFrame = null;
+
+function animate() {
+	activeAnimationFrame = requestAnimationFrame(render);
+}
+function stopAnimation() {
+	if (activeAnimationFrame !== null) {
+		cancelAnimationFrame(activeAnimationFrame);
+	}
+}
 
 const canvas = document.getElementById("matrix-canvas");
 
 if (canvas != null) {
-	/* drawMatrix(); */
-	setInterval(drawMatrix, 100);
+	window.addEventListener('blur', stopAnimation);
+	window.addEventListener('focus', animate);
+	animate();
 }
+
+
 
 
