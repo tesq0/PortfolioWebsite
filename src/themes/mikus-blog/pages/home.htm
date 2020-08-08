@@ -80,7 +80,12 @@ pageNumber = "{{ :page }}"
 			<div class="mt-8">
 			    {% partial 'projects/projectListRaw' %}
 			</div>
-			
+
+			<div>
+				<a class="link" href={{ 'projects'|page }} >
+					<button class="py-2 px-4 ml-auto border shadow block">All projects</button>
+				</a>
+			</div>
 		</div>
 		
 		<div class="py-6 mt-16">
@@ -91,6 +96,12 @@ pageNumber = "{{ :page }}"
 				{% partial 'blog/blogPostsListRaw' show_images=false %}
 				
 			</ul>
+
+			<div>
+				<a class="link" href={{ 'blog'|page }} >
+					<button class="cursor-pointer py-2 px-4 border shadow ml-auto block">All posts</button>
+				</a>
+			</div>
 		</div>
 
 		<div class="mt-16"></div>

@@ -11,8 +11,9 @@
 			<div class="w-full h-64">
 				{% if project.thumbnail %}
 				<img
+					class="w-full h-full"
 					data-src="{{ project.thumbnail }}"
-										src="{{ project.thumbnail }}"
+										src="/storage/app/media/{{ project.thumbnail }}"
 										alt="{{ project.title }}"
 										style="max-width: 100%" />
 				{% else %}
