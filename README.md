@@ -1,4 +1,4 @@
-# Allegro Buddy
+# PortfolioWebsite based on OctoberCMS
 
 ## Prerequisites
 
@@ -30,6 +30,8 @@ php artisan key:generate
 
 # run database migrations
 php artisan october:up
+
+php artisan october:mirror public/
 
 exit
 ```
