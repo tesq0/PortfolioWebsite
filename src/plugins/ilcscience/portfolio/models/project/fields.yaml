@@ -7,6 +7,7 @@ fields:
     slug:
         label: 'ilcscience.portfolio::lang.project.slug'
         span: auto
+        required: 1
         preset:
             field: title
             type: slug
@@ -18,13 +19,9 @@ fields:
         type: text
     thumbnail:
         label: 'ilcscience.portfolio::lang.project.thumbnail'
-        mode: file
-        useCaption: true
-        thumbOptions:
-            mode: crop
-            extension: auto
+        mode: image
         span: auto
-        type: fileupload
+        type: mediafinder
     description:
         label: 'ilcscience.portfolio::lang.project.description'
         size: ''

@@ -1,0 +1,17 @@
+<section>
+	{% partial "projects/projectListRaw" %}
+
+	{% set projects = projectList.records %}
+
+	{% if projects.lastPage > 1 %}
+
+	<nav class="flex justify-around" role="navigation">
+
+		{{ projects.render|raw }}
+
+	</nav>
+
+	{% endif %}
+</section>
+
+

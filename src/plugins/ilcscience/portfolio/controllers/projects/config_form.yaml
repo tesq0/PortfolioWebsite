@@ -1,0 +1,11 @@
+name: Projects
+modelClass: Ilcscience\Portfolio\Models\Project
+form: $/ilcscience/portfolio/models/project/fields.yaml
+defaultRedirect: ilcscience/portfolio/projects
+create:
+    redirect: 'ilcscience/portfolio/projects/update/:id'
+    redirectClose: ilcscience/portfolio/projects
+update:
+    redirect: ilcscience/portfolio/projects
+    redirectClose: ilcscience/portfolio/projects
+preview: {  }

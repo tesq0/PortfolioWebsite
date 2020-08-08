@@ -1,0 +1,5 @@
+title: Projects
+modelClass: Ilcscience\Portfolio\Models\Project
+nameFrom: title
+toolbar:
+    buttons: reorder_toolbar

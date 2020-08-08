@@ -1,0 +1,14 @@
+columns:
+    title:
+        label: 'ilcscience.portfolio::lang.project.title'
+        type: text
+        searchable: true
+        sortable: true
+    short_description:
+        label: 'ilcscience.portfolio::lang.project.short_description'
+        type: text
+        searchable: true
+    created_at:
+        label: 'ilcscience.portfolio::lang.project.created_at'
+        type: datetime
+        sortable: true

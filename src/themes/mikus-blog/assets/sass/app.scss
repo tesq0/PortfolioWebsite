@@ -19,11 +19,22 @@ input:invalid, textarea:invalid, select:invalid {
 }
 
 h1 {
-		@apply text-6xl;
-}
-h2 {
 		@apply text-4xl;
 }
+
+h2 {
+		@apply text-2xl;
+}
+
+@screen md {
+		h1 {
+				@apply text-6xl;
+		}
+		h2 {
+				@apply text-4xl;
+		}
+}
+
 h3 {
 		@apply text-xl;
 }
@@ -45,6 +56,11 @@ a {
 
 .link {
 		@apply text-black no-underline;
+		&-black {
+				&:hover {
+						@apply underline text-black;
+				}
+		}
 		&-gray {
 				@apply text-gray-700 transition-colors duration-300 ease-in-out;
 				&:hover {
@@ -106,3 +122,5 @@ a {
  * .bg-pattern-graph-paper { ... }
  * .skew-45 { ... }
  */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');

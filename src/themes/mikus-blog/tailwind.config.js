@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
       },
 			colors: {
 				facebook: "#3b5998",
@@ -24,7 +24,9 @@ module.exports = {
 		},
 	},
   variants: {
-		borderWidth: [ "responsive", "hover" ]
+		borderWidth: [ "responsive", "hover" ],
+		margin: [ "responsive", "odd" ],
+		padding: [ "responsive", "odd", "even" ]
 	},
   purge: {
     content: [

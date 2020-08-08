@@ -9,5 +9,10 @@
         'description' => 'Description',
         'slug' => 'Slug',
         'thumbnail' => 'Thumbnail',
+        'created_at' => 'Created At',
+        'manage_projects' => 'Manage Projects',
+    ],
+    'projects' => [
+        'projects' => 'Projects',
     ],
 ];

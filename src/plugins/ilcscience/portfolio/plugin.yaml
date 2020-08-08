@@ -4,3 +4,20 @@ plugin:
     author: ILCScience
     icon: oc-icon-briefcase
     homepage: ''
+navigation:
+    portfolio:
+        label: 'ilcscience.portfolio::lang.plugin.name'
+        url: ilcscience/portfolio/projects
+        icon: icon-briefcase
+        permissions: {  }
+        sideMenu:
+            projects:
+                label: 'ilcscience.portfolio::lang.projects.projects'
+                url: ilcscience/portfolio/projects
+                icon: icon-tasks
+                permissions:
+                    - ilcscience.portfolio.manage_projects
+permissions:
+    ilcscience.portfolio.manage_projects:
+        tab: 'ilcscience.portfolio::lang.plugin.name'
+        label: 'ilcscience.portfolio::lang.project.manage_projects'

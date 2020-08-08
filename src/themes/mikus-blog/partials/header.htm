@@ -1,6 +1,7 @@
 ==
 <?
 	function onStart() {
+		
 		$this['color'] = $this['color'] ?? "black";
 		$color = $this['color'];
 
@@ -21,18 +22,21 @@
 	}
 ?>
 ==
-<header class="w-full px-12 py-8 h-32 z-10 flex flex-col sm:flex-row justify-between sm:items-center">
+<header class="w-full block px-6 md:px-12 py-8 h-32 z-10 flex flex-col sm:flex-row justify-between sm:items-center">
 	<div class="">
-		<a class="no-underline {{ logo_css }} font-bold text-2xl" href="{{ 'home'|page }}">
+		<a class="no-underline {{ logo_css }} font-bold text-4xl" href="{{ 'home'|page }}">
 			{{ this.theme.short_name }}
 		</a>
 	</div>
-	<div class="flex items-center sm:justify-end flex-1">
+	<div class="flex items-center sm:justify-end flex-1 mt-2 sm:mt-0">
 		<div class="">
 		</div>
 		<div class="sm:ml-2">
 			<a class="link {{ link_css }} text-lg font-medium" href="{{ 'blog'|page }}">
 				BLOG
+			</a>
+			<a class="ml-2 link {{ link_css }} text-lg font-medium" href="{{ 'projects'|page }}">
+				{{ "PROJECTS"|_ }}
 			</a>
 		</div>
 	</div>

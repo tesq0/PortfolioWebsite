@@ -1,15 +1,35 @@
+==
+<?
+	function onStart() {
+		$this['show_images'] = $this['show_images'] ?? true;
+	}
+?>
+==
 {% for post in blogPosts.posts %}
 
   <article class="rounded shadow bg-white my-4 p-4" itemscope itemtype="http://schema.org/BlogPosting">
 
     <h2 class="font-medium">
-      <a href="{{ post.url }}" itemprop="url">
+      <a class="link" href="{{ post.url }}" itemprop="url">
         <span itemprop="headline">{{ post.title }}</span>
       </a>
     </h2>
 
-		<div class="p-2">
-			{% if post.featured_images.count >= 1 %}
+		<p class="text-sm mt-2">
+      Posted
+      {% if post.categories.count %} in
+          <span itemprop="keywords">
+          {% for category in post.categories %}
+              <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+          {% endfor %}
+          </span>
+      {% endif %}
+      on <time itemprop="datePublished" datetime="{{ post.published_at|date('Y-m-d') }}">{{ post.published_at|date('M d, Y') }}</time>
+      <!-- by <span itemprop="author">{{ post.user.full_name }}</span> -->
+    </p>
+
+		<div class="mt-2">
+			{% if show_images and post.featured_images.count >= 1 %}
 			<div class="featured-images text-center mb-4">
 				{% for image in post.featured_images %}
 				<p>
@@ -23,21 +43,8 @@
 			</div>
 			{% endif %}
 			
-			<p class="text-gray-500" itemprop="description">{{ post.excerpt }}</p>
+			<p class="font-medium" itemprop="description">{{ post.excerpt }}</p>
 		</div>
-		
-    <p class="">
-      Posted
-      {% if post.categories.count %} in
-          <span itemprop="keywords">
-          {% for category in post.categories %}
-              <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
-          {% endfor %}
-          </span>
-      {% endif %}
-      on <time itemprop="datePublished" datetime="{{ post.published_at|date('Y-m-d') }}">{{ post.published_at|date('M d, Y') }}</time>
-      <!-- by <span itemprop="author">{{ post.user.full_name }}</span> -->
-    </p>
 
   </article>
 

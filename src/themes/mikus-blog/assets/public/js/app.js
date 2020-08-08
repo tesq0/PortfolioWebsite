@@ -119,8 +119,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 var COLUMN_PX_WIDTH = 20;
 var ROW_PX_HEIGHT = 20;
+var MOVE_SPEED = 50;
 var CHINESE_CHARACTERS = ['中', '文', '简', '繁', '体', '转', '换', '器', '-', '支', '持', '地', '方', '惯', '用', '词', '汇', '替', '换'];
 var currentMaxRows = 0;
+var currentMaxOffset = 0;
+var deltaTime = now = then = 0;
 var columnMatrixes = new Map();
 
 var ColumnMatrix = /*#__PURE__*/function () {
@@ -136,12 +139,14 @@ var ColumnMatrix = /*#__PURE__*/function () {
   _createClass(ColumnMatrix, [{
     key: "move",
     value: function move() {
-      var newYOffset = this.rowOffset + 1;
+      var amount = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      var newYOffset = this.rowOffset + amount;
 
-      if (newYOffset > currentMaxRows) {
-        newYOffset = -1 * this.characters.length;
+      if (newYOffset >= currentMaxOffset + ROW_PX_HEIGHT) {
+        newYOffset = -1 * this.characters.length * ROW_PX_HEIGHT;
       }
 
+      newYOffset = Math.ceil(newYOffset);
       this.rowOffset = newYOffset;
     }
   }, {
@@ -157,7 +162,7 @@ var ColumnMatrix = /*#__PURE__*/function () {
     value: function make() {
       var characters = [];
       var characterCount = Math.max(2, Math.floor(Math.random() * (currentMaxRows / 2)));
-      var rowOffset = Math.max(2, Math.floor(Math.random() * (currentMaxRows - characterCount)));
+      var rowOffset = Math.max(2, Math.floor(Math.random() * (currentMaxRows - characterCount))) * ROW_PX_HEIGHT;
 
       for (i = 0; i < characterCount; i++) {
         var characterIdx = Math.floor(Math.random() * CHINESE_CHARACTERS.length);
@@ -196,14 +201,13 @@ var drawMatrix = function drawMatrix() {
   gradient.addColorStop(0, "rgba(0, 0, 0, 1)");
   gradient.addColorStop(1, "rgba(0, 50, 0, 0.7)");
   ctx.fillStyle = gradient;
-  ctx.fillRect(0, 0, screenWidth, screenHeight);
-  /* console.log("h", screenHeight, "w", screenWidth); */
-  // Draw the letters
+  ctx.font = "".concat(ROW_PX_HEIGHT, "px Sans");
+  ctx.fillRect(0, 0, screenWidth, screenHeight); // Draw the letters
 
   var columnCount = screenWidth / COLUMN_PX_WIDTH;
   var rowCount = screenHeight / ROW_PX_HEIGHT;
   currentMaxRows = rowCount;
-  /* console.log("max rows", currentMaxRows); */
+  currentMaxOffset = rowCount * ROW_PX_HEIGHT;
 
   for (col = 0; col < columnCount; col++) {
     var xPos = col * COLUMN_PX_WIDTH;
@@ -213,32 +217,65 @@ var drawMatrix = function drawMatrix() {
         rowOffset = _columnMatrix$getData.rowOffset,
         characters = _columnMatrix$getData.characters;
 
+    var moveBy = deltaTime * MOVE_SPEED;
+    columnMatrix.move(moveBy);
+
     for (charIdx = 0; charIdx < characters.length; charIdx++) {
-      var yPos = rowOffset * ROW_PX_HEIGHT + charIdx * ROW_PX_HEIGHT;
-      ctx.fillStyle = "rgba(0, 255 ,0 , ".concat(Math.max(charIdx, 1) / characters.length, ")");
-      var padding = 5;
-      var rectWidth = COLUMN_PX_WIDTH - padding;
-      var rectHeight = ROW_PX_HEIGHT - padding;
-      var centerOut = padding / 2;
-      /* ctx.fillRect(
+      var yPos = rowOffset + charIdx * ROW_PX_HEIGHT;
+
+      if (yPos < currentMaxOffset) {
+        ctx.fillStyle = "rgba(0, 255 ,0 , ".concat(1 - yPos / screenHeight, ")");
+        ctx.fillText(characters[charIdx], xPos, yPos);
+      }
+      /*
+      const padding = 5;
+      const rectWidth = COLUMN_PX_WIDTH - padding;
+      const rectHeight = ROW_PX_HEIGHT - padding;
+      const centerOut = padding / 2;
+      	 ctx.fillRect(
       	 xPos + (centerOut),
       	 yPos + (centerOut),
       	 rectWidth , rectHeight
-      	 ); */
+       );
+      */
 
-      ctx.font = "".concat(ROW_PX_HEIGHT, "px Sans");
-      ctx.fillText(characters[charIdx], xPos, yPos);
     }
-
-    columnMatrix.move();
   }
 };
+
+var requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame;
+var cancelAnimationFrame = window.cancelAnimationFrame || window.webkitCancelRequestAnimationFrame || window.webkitCancelAnimationFrame || window.mozCancelRequestAnimationFrame || window.mozCancelAnimationFrame || window.oCancelRequestAnimationFrame || window.oCancelAnimationFrame || window.msCancelRequestAnimationFrame || window.msCancelAnimationFrame;
+
+function draw() {
+  drawMatrix();
+}
+
+function render() {
+  now = performance.now();
+  deltaTime = (now - then) / 1000.0;
+  then = now;
+  draw();
+  activeAnimationFrame = requestAnimationFrame(render);
+}
+
+var activeAnimationFrame = null;
+
+function animate() {
+  activeAnimationFrame = requestAnimationFrame(render);
+}
+
+function stopAnimation() {
+  if (activeAnimationFrame !== null) {
+    cancelAnimationFrame(activeAnimationFrame);
+  }
+}
 
 var canvas = document.getElementById("matrix-canvas");
 
 if (canvas != null) {
-  /* drawMatrix(); */
-  setInterval(drawMatrix, 100);
+  window.addEventListener('blur', stopAnimation);
+  window.addEventListener('focus', animate);
+  animate();
 }
 
 /***/ }),

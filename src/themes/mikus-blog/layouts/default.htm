@@ -41,9 +41,12 @@ description = "Default layout"
 		<div style="max-width: 1240px" class="mx-auto h-full flex flex-col" >
 			{% partial 'header' %}
 
-			<div class="flex flex-col flex-1 w-full px-6">
-				{% page %}
+			<div class="flex flex-col flex-1 w-full px-6 md:px-12">
 
+				<div class="py-4">
+					{% page %}
+				</div>
+				
 				<footer>
 					<ul class="">
 						{% for btn in this.theme.social_buttons %}
