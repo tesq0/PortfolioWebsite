@@ -12,7 +12,7 @@ description = "Default layout"
 
     {% set description = this.page.description ?: this.theme.whoami %}
     <meta name="description" content="{{ description }}">
-    <meta property="og:title" content="{{ this.page.title }}">
+    <meta property="og:title" content="{{ title }}">
     <meta property="og:site_name" content="{{ this.theme.name }}">
     <meta property="og:url" content="{{ ''|page }}">
     <meta property="og:description" content="{{ description }}">
