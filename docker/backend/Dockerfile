@@ -24,8 +24,8 @@ RUN pecl channel-update pecl.php.net && pecl install mcrypt
 
 # ZIP
 RUN	apk --update add libzip-dev && \
-	docker-php-ext-install zip && \
-	docker-php-ext-configure zip
+	docker-php-ext-configure zip --with-zip && \
+	docker-php-ext-install zip
 
 # PSQL
 RUN	apk --update add postgresql-dev \
@@ -50,9 +50,9 @@ RUN apk add --update --no-cache g++ imagemagick imagemagick-dev libtool  \
 RUN	docker-php-ext-install bcmath
 
 # GD
-RUN apk add --update --no-cache libpng-dev && \
+RUN apk add --update --no-cache libpng-dev jpeg-dev libpq libwebp-dev && \
+	docker-php-ext-configure gd --with-jpeg --with-webp && \
 	docker-php-ext-install gd
-
 
 # Clean up
 RUN rm /var/cache/apk/* \
