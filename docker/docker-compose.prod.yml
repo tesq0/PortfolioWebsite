@@ -30,17 +30,17 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=${PROXY_NETWORK_NAME}"
 
-      - "traefik.http.routers.backend.entrypoints=http"
-      - "traefik.http.routers.backend.rule=Host(`${DOMAIN}`, `www.${DOMAIN}`)"
-      - "traefik.http.routers.backend.middlewares=https-redirect@file"
+      - "traefik.http.routers.mikusportfolio.entrypoints=http"
+      - "traefik.http.routers.mikusportfolio.rule=Host(`${DOMAIN}`, `www.${DOMAIN}`)"
+      - "traefik.http.routers.mikusportfolio.middlewares=https-redirect@file"
 
-      - "traefik.http.routers.backend-secure.service=backend-secure"
-      - "traefik.http.routers.backend-secure.rule=Host(`${DOMAIN}`, `www.${DOMAIN}`)"
-      - "traefik.http.routers.backend-secure.tls=true"
-      - "traefik.http.routers.backend-secure.tls.certresolver=dns"
-      - "traefik.http.routers.backend-secure.entrypoints=https"
-      # - "traefik.http.routers.backend-secure.middlewares=www-redirect@file"
-      - "traefik.http.services.backend-secure.loadbalancer.server.port=8080"
+      - "traefik.http.routers.mikusportfolio-secure.service=mikusportfolio-secure"
+      - "traefik.http.routers.mikusportfolio-secure.rule=Host(`${DOMAIN}`, `www.${DOMAIN}`)"
+      - "traefik.http.routers.mikusportfolio-secure.tls=true"
+      - "traefik.http.routers.mikusportfolio-secure.tls.certresolver=dns"
+      - "traefik.http.routers.mikusportfolio-secure.entrypoints=https"
+      # - "traefik.http.routers.mikusportfolio-secure.middlewares=www-redirect@file"
+      - "traefik.http.services.mikusportfolio-secure.loadbalancer.server.port=8080"
 
 ### PostgreSQL ###########################################
   db:
