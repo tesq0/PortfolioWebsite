@@ -79,8 +79,9 @@ RUN addgroup --gid ${GID} app
 RUN adduser --disabled-password --ingroup app --uid ${UID} app
 
 # Make sure files/folders needed by the processes are accessable when they run under the nobody user
-RUN mkdir -p /var/tmp/nginx /var/log/nginx && \
+RUN mkdir -p /var/tmp/nginx /var/log/nginx /var/www/letsencrypt && \
 	chown -R ${UID}.${GID} /var/www/html && \
+	chown -R ${UID}.${GID} /var/www/letsencrypt && \
   chown -R ${UID}.${GID} /run && \
   chown -R ${UID}.${GID} /var/lib/nginx && \
   chown -R ${UID}.${GID} /var/tmp/nginx && \
