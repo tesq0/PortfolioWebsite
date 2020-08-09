@@ -26,24 +26,27 @@ h2 {
 		@apply text-2xl;
 }
 
-@screen md {
-		h1 {
-				@apply text-6xl;
-		}
-		h2 {
-				@apply text-4xl;
-		}
+h3 {
+		@apply text-lg;
 }
 
-h3 {
-		@apply text-xl;
+@screen md {
+		h1 {
+				@apply text-5xl;
+		}
+		h2 {
+				@apply text-3xl;
+		}
+		h3 {
+				@apply text-xl;
+		}
 }
 
 a {
-		@apply text-blue-600 underline;
-		:hover
+		@apply text-blue-600 no-underline;
+		&:hover
 		{
-				@apply text-secondary-600;
+				@apply underline text-secondary-600;
 		}
 }
 
@@ -52,14 +55,16 @@ a {
  */
 @tailwind components;
 
-[x-cloak] { display: none; }
+.link-blank {
+		@apply text-current;
+		&:hover {
+				@apply no-underline text-current;
+		}
+}
 
 .link {
-		@apply text-black no-underline;
-		&:hover {
-				@apply underline;
-		}
 		&-black {
+				@apply text-black;
 				&:hover {
 						@apply text-black;
 				}
@@ -71,7 +76,10 @@ a {
 				}
 		}
 		&-white {
-				@apply text-white transition-colors duration-300 ease-in-out;
+				@apply text-white;
+				&:hover {
+						@apply text-white;
+				}
 		}
 		
 }
@@ -94,6 +102,10 @@ a {
 				@apply bg-blue-500 text-white;
 		}
 		
+}
+
+.prose {
+		max-width: 100%;
 }
 
 /**
@@ -123,4 +135,36 @@ a {
  * .skew-45 { ... }
  */
 
+/**
+Alpinejs hide before init
+*/
+[x-cloak] { display: none; }
+
+/**
+Montserrat Font
+*/
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+
+/**
+Responsive video iframe
+*/
+.video-wrapper {
+    position: relative;
+    padding-top: 25px;
+    margin-bottom: 15px;
+    height: 0;
+}
+
+.video-wrapper.ratio-5-4 {padding-bottom: 80%;}
+.video-wrapper.ratio-4-3 {padding-bottom: 70%;}
+.video-wrapper.ratio-16-10 {padding-bottom: 62.5%;}
+.video-wrapper.ratio-16-9 {padding-bottom: 56.25%;}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%!important;
+    height: 100%!important;
+}

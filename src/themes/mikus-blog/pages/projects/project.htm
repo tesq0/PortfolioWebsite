@@ -10,32 +10,40 @@ modelKeyColumn = "slug"
 displayColumn = "title"
 notFoundMessage = "Project not found"
 ==
-{% set project = projectDetails.record %}
+<?php
+function onEnd()
+{
+	$this["project"] = $this->projectDetails->record;
+  if (isset($this['project'])) {
+    $this->page->title = $this->project->title;
+    $this->page->description = $this->project->short_description;
+    if ($this->project->thumbnail) {
+      $this['metaImage'] = URL::to($this->project->thumbnail);
+    }
+  }
+  else {
+    return $this->controller->run('/404');
+  }
+}
+?>
+==
 {% set displayColumn = projectDetails.displayColumn %}
 {% set notFoundMessage = projectDetails.notFoundMessage %}
 
 {% if record %}
 
 <div class="flex flex-col items-center text-center">
-	<h1 class="" itemprop="headline">{{ attribute(record, displayColumn) }}</h1>
+	<h2 class="font-bold" itemprop="headline">{{ attribute(record, displayColumn) }}</h2>
+	{% if project.short_description %}
+	<p class="my-2" itemprop="description">{{ project.short_description }}</p>
+	{% endif %}
 </div>
 
-<article class="mt-2 bg-white rounded shadow p-4">
-
-  <header class="">
-		
-		<div class="w-full">
-			{% if project.short_description %}
-			<p class="mt-4 text-gray-500" itemprop="description">{{ project.short_description }}</p>
-			{% endif %}
-
-		</div>
-		
-  </header>
-
-	<div class="my-4" itemprop="articleBody">
+<article class="mt-2 mx-auto prose lg:prose-xl bg-white rounded shadow py-4 px-8">
+	
+	<div class="my-4">
 		{% if project.description %}
-		{{ project.description|raw }}
+		{{ project.description|md }}
 		{% endif %}
   </div>
 	

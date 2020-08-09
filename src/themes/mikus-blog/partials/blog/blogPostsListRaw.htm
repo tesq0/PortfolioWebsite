@@ -7,13 +7,13 @@
 ==
 {% for post in blogPosts.posts %}
 
-  <article class="rounded shadow bg-white my-4 p-4" itemscope itemtype="http://schema.org/BlogPosting">
+  <article class="rounded shadow bg-white my-4 py-4 px-8" itemscope itemtype="http://schema.org/BlogPosting">
 
-    <h2 class="font-medium">
-      <a class="link" href="{{ post.url }}" itemprop="url">
+    <h3 class="font-bold">
+      <a class="link link-black" href="{{ post.url }}" itemprop="url">
         <span itemprop="headline">{{ post.title }}</span>
       </a>
-    </h2>
+    </h3>
 
 		<p class="text-sm mt-2">
       Posted

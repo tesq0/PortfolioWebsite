@@ -23,7 +23,8 @@ fields:
         span: auto
         type: mediafinder
     description:
-        label: 'ilcscience.portfolio::lang.project.description'
-        size: ''
+        label: 'Markdown editor'
+        size: giant
+        mode: split
         span: full
-        type: richeditor
+        type: markdown

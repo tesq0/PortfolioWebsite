@@ -27,7 +27,7 @@ function onEnd()
 {% set post = blogPost.post %}
 
 <div class="flex flex-col items-center text-center">
-	<h1 class="" itemprop="headline">{{ post.title }}</h1>
+	<h2 class="font-bold" itemprop="headline">{{ post.title }}</h2>
 
 	<p class="my-2">
 		Posted
@@ -44,10 +44,9 @@ function onEnd()
 	
 </div>
 
-<article class="mt-2 bg-white rounded shadow p-4" itemscope itemtype="https://schema.org/BlogPosting">
+<article class="mt-2 prose lg:prose-xl mx-auto bg-white rounded shadow py-4 px-8" itemscope itemtype="https://schema.org/BlogPosting">
 
   <header class="">
-
 
 		<div class="w-full">
 			{% if post.featured_images.count >= 1 %}
@@ -59,22 +58,18 @@ function onEnd()
 				{% endfor %}
 			</div>
 			{% endif %}
-			
-			{% if post.excerpt %}
-			<p class="mt-4 text-gray-500" itemprop="description">{{ post.excerpt }}</p>
-			{% endif %}
 
 		</div>
 		
 		
   </header>
 
-	{% if post.excerpt or post.featured_images.count >= 1 %}
-	<hr class="my-4">
+	{% if post.featured_images.count >= 1 %}
+	<hr>
 	{% endif %}
 
-	<div class="my-4" itemprop="articleBody">
-    {{ post.content_html|raw }}
+	<div class="my-4 prose lg:prose-xl" itemprop="articleBody">
+    {{ post.content_html|md }}
   </div>
 
   <footer class="">

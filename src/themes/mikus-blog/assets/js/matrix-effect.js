@@ -177,27 +177,27 @@ function draw() {
 
 }
 
+let activeAnimationFrame = null;
+
 function render() {
 	
-	if (document.hasFocus())
-	{
-		now = performance.now( );
-		deltaTime = ( now - then ) / 1000.0;
-		then = now;
-		draw();
+	now = performance.now( );
+	deltaTime = ( now - then ) / 1000.0;
+	then = now;
+	draw();
 
-		activeAnimationFrame = requestAnimationFrame(render);
-	}
+	activeAnimationFrame = requestAnimationFrame(render);
 	
 }
 
-let activeAnimationFrame = null;
-
-function animate() {
-
+function cancelAnimation() {
 	if (activeAnimationFrame !== null) {
 		cancelAnimationFrame(activeAnimationFrame);
 	}
+}
+
+function animate() {
+
 	then = performance.now();
 	activeAnimationFrame = requestAnimationFrame(render);
 
@@ -207,6 +207,7 @@ const canvas = document.getElementById("matrix-canvas");
 
 if (canvas != null) {
 	window.addEventListener('focus', animate);
+	window.addEventListener('blur', cancelAnimation);
 	animate();
 }
 
