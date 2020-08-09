@@ -19,7 +19,7 @@ services:
         - UID=${BACKEND_UID}
         - GID=${BACKEND_GID}
     # ports:
-      # - "${BIND_ADDRESS}:1234:8080"
+    #   - "${BIND_ADDRESS}:1234:8080"
     volumes:
       - ../src:/var/www/html
     networks:
@@ -30,17 +30,17 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=${PROXY_NETWORK_NAME}"
 
-      - "traefik.http.routers.mikusportfolio.entrypoints=http"
-      - "traefik.http.routers.mikusportfolio.rule=Host(`${DOMAIN}`, `www.${DOMAIN}`)"
-      - "traefik.http.routers.mikusportfolio.middlewares=https-redirect@file"
+      - "traefik.http.routers.mikus-blog.entrypoints=http"
+      - "traefik.http.routers.mikus-blog.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.routers.mikus-blog.middlewares=https-redirect@file"
 
-      - "traefik.http.routers.mikusportfolio-secure.service=mikusportfolio-secure"
-      - "traefik.http.routers.mikusportfolio-secure.rule=Host(`${DOMAIN}`, `www.${DOMAIN}`)"
-      - "traefik.http.routers.mikusportfolio-secure.tls=true"
-      - "traefik.http.routers.mikusportfolio-secure.tls.certresolver=dns"
-      - "traefik.http.routers.mikusportfolio-secure.entrypoints=https"
-      # - "traefik.http.routers.mikusportfolio-secure.middlewares=www-redirect@file"
-      - "traefik.http.services.mikusportfolio-secure.loadbalancer.server.port=8080"
+      - "traefik.http.routers.mikus-blog-secure.service=mikus-blog-secure"
+      - "traefik.http.routers.mikus-blog-secure.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.routers.mikus-blog-secure.tls=true"
+      - "traefik.http.routers.mikus-blog-secure.tls.certresolver=http"
+      - "traefik.http.routers.mikus-blog-secure.entrypoints=https"
+      # - "traefik.http.routers.mikus-blog-secure.middlewares=www-redirect@file"
+      - "traefik.http.services.mikus-blog-secure.loadbalancer.server.port=8080"
 
 ### PostgreSQL ###########################################
   db:
