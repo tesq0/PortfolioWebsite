@@ -17,6 +17,10 @@ description = "Default layout"
     <meta property="og:url" content="{{ ''|page }}">
     <meta property="og:description" content="{{ description }}">
 
+		{% if not metaImage %}
+		{% set metaImage = this.theme.meta_image %}
+		{% endif %}
+
     {% if metaImage %}
     <meta property="og:image" content="{{ metaImage }}">
     <link rel="image_src" href="{{ metaImage }}">

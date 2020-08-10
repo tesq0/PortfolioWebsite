@@ -121,6 +121,11 @@ form:
                 comment: favicon for the website
                 tab: Meta
 
+            meta_image:
+                label: OG_Image
+                comment: Default Meta image 
+                tab: Meta
+
             meta_lang:
                 label: Language Code
                 comment: Language code in <body lang="$x">
