@@ -61,7 +61,7 @@ pageNumber = "{{ :page }}"
 
 			<div class="text-center">
 				<h2 class="font-bold" >Contact me:</h2>
-				<h3><a class="link link-white" href="mailto:{{ this.theme.contact }}">{{this.theme.contact}}</a></h3>
+				<h3><a class="link link-white" href="mailto:{{ html_email(this.theme.contact) }}">{{ html_email(this.theme.contact) }}</a></h3>
 			</div>
 
 		</div>
