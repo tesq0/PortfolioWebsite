@@ -44,11 +44,12 @@ description = "Default layout"
 
 		<div class="mx-auto h-full flex flex-col" >
 
-			<div class="flex flex-col flex-1 w-full">
+			<div>
 				{% page %}
 			</div>
 			
 			<script src="{{ 'assets/public/js/app.js'|theme }}"></script>
+			<script src="https://polyfill.io/v3/polyfill.min.js?features=Element.prototype.scrollIntoView"></script>
 
 			{{ scripts }}
 

@@ -3,21 +3,22 @@ const mix = require('laravel-mix');
 require("laravel-mix-tailwind");
 
 /*
- |--------------------------------------------------------------------------
- | Mix Asset Management
- |--------------------------------------------------------------------------
- |
- | Mix provides a clean, fluent API for defining some Webpack build steps
- | for your Laravel application. By default, we are compiling the Sass
- | file for your application, as well as bundling up your JS files.
- |
+	 |--------------------------------------------------------------------------
+	 | Mix Asset Management
+	 |--------------------------------------------------------------------------
+	 |
+	 | Mix provides a clean, fluent API for defining some Webpack build steps
+	 | for your Laravel application. By default, we are compiling the Sass
+	 | file for your application, as well as bundling up your JS files.
+	 |
  */
 
 mix.setPublicPath('./assets/public/')
-    .js('assets/js/app.js', 'js')
-    .js('assets/js/matrix-effect.js', 'js')
-    .sass('assets/sass/app.scss', 'css')
-		.tailwind("./tailwind.config.js");
+   .js('assets/js/app.js', 'js')
+   .js('assets/js/matrix-effect.js', 'js')
+   .sass('assets/sass/app.scss', 'css')
+	 .tailwind("./tailwind.config.js");
+
 
 
 // Full API
