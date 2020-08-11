@@ -1,13 +1,18 @@
+"use strict";
 const COLUMN_PX_WIDTH = 20;
 const ROW_PX_HEIGHT = 20;
 const MOVE_SPEED = 50;
 
 const CHINESE_CHARACTERS = ['中','文','简','繁','体','转','换','器','-','支','持','地','方','惯','用','词','汇','替','换'];
 
-let currentMaxRows = 0;
-let currentMaxOffset = 0;
+var currentMaxRows = 0;
+var currentMaxOffset = 0;
 
-let deltaTime = now = then = 0;
+var isWindowFocused = true;
+
+var deltaTime = 0;
+var now = 0
+var lastTimestamp = 0;
 
 const columnMatrixes = new Map();
 
@@ -37,7 +42,7 @@ class ColumnMatrix {
 			Math.floor( Math.random() * ( currentMaxRows - characterCount ) )
 		) * ROW_PX_HEIGHT;
 		
-		for (i = 0; i < characterCount; i++) {
+		for (let i = 0; i < characterCount; i++) {
 
 			let characterIdx = Math.floor(Math.random() * CHINESE_CHARACTERS.length);
 			let character = CHINESE_CHARACTERS[characterIdx];
@@ -77,7 +82,7 @@ class ColumnMatrix {
 
 const getOrInitColumnMatrix = (columnIndex) => {
 
-	key = columnIndex.toString();
+	let key = columnIndex.toString();
 
 	let obj = columnMatrixes.get(key);
 
@@ -118,7 +123,7 @@ const drawMatrix = () => {
 	currentMaxOffset = rowCount * ROW_PX_HEIGHT;
 
 
-	for (col = 0 ; col < columnCount; col++) {
+	for (let col = 0 ; col < columnCount; col++) {
 
 		let xPos = col * COLUMN_PX_WIDTH;
 
@@ -128,7 +133,7 @@ const drawMatrix = () => {
 		let moveBy = deltaTime * MOVE_SPEED;
 		columnMatrix.move(moveBy);
 
-		for (charIdx = 0; charIdx < characters.length; charIdx++) {
+		for (let charIdx = 0; charIdx < characters.length; charIdx++) {
 
 			let yPos = rowOffset + (charIdx * ROW_PX_HEIGHT);
 
@@ -157,7 +162,7 @@ const drawMatrix = () => {
 	
 };
 
-const requestAnimationFrame = window.requestAnimationFrame ||
+var requestAnimationFrame = window.requestAnimationFrame ||
 															window.webkitRequestAnimationFrame ||
 															window.mozRequestAnimationFrame ||
 															window.oRequestAnimationFrame ||
@@ -177,17 +182,21 @@ function draw() {
 
 }
 
-let activeAnimationFrame = null;
+var activeAnimationFrame = null;
 
 function render() {
+
+	if (!document.hasFocus()) {
+		return
+	}
 	
 	now = performance.now( );
-	deltaTime = ( now - then ) / 1000.0;
-	then = now;
+	deltaTime = ( now - lastTimestamp ) / 1000.0;
+	lastTimestamp = now;
 	draw();
 
 	activeAnimationFrame = requestAnimationFrame(render);
-	
+
 }
 
 function cancelAnimation() {
@@ -198,19 +207,31 @@ function cancelAnimation() {
 
 function animate() {
 
-	then = performance.now();
+	cancelAnimation();
+	lastTimestamp = performance.now();
 	activeAnimationFrame = requestAnimationFrame(render);
 
 }
 
-const canvas = document.getElementById("matrix-canvas");
+function trackFocus() {
 
-if (canvas != null) {
-	window.addEventListener('focus', animate);
-	window.addEventListener('blur', cancelAnimation);
-	animate();
+	window.onblur = function() { isWindowFocused = false; }
+	window.onfocus = function() { isWindowFocused = true; }
+	
 }
 
+function init() {
 
+	const canvas = document.getElementById("matrix-canvas");
 
+	if (canvas != null) {
+		draw(); // first draw;
+		window.addEventListener('focus', animate);
+		animate();
+	}
+	
+}
+
+trackFocus();
+window.onload = init;
 
