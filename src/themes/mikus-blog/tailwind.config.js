@@ -54,7 +54,7 @@ module.exports = {
   variants: {
 		borderWidth: [ "responsive", "hover" ],
 		margin: [ "responsive", "odd" ],
-		padding: [ "responsive", "odd", "even" ]
+		padding: [ "responsive", "odd", "even", "first", "last" ]
 	},
   purge: {
     content: [

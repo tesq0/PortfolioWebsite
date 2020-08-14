@@ -5,7 +5,7 @@
 <div class="flex flex-row flex-wrap">
 	{% for project in projectList.records %}
 
-	<article class="mt-4 lg:even:pl-2 lg:odd:pr-2 w-full lg:w-1/2">
+	<article class="mt-4 sm:even:pl-2 sm:odd:pr-2 first:pl-0 last:pr-0 lg:px-2 w-full sm:w-1/2 lg:w-1/4 first:pl-0">
 
 		<a class="link-blank" href="{{ detailsPage|page({ slug: project.slug }) }}">
 			<div class="bg-white shadow-md">
