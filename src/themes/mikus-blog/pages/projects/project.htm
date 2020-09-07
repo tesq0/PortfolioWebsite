@@ -18,7 +18,7 @@ function onEnd()
     $this->page->title = $this->project->title;
     $this->page->description = $this->project->short_description;
     if ($this->project->thumbnail) {
-      $this['metaImage'] = URL::to($this->project->thumbnail);
+      $this['metaImage'] = URL::to("/storage/app/media".$this->project->thumbnail);
     }
   }
   else {
