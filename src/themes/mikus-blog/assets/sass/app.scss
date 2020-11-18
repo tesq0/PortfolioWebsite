@@ -50,6 +50,11 @@ a {
     }
 }
 
+.webkit-min-h-screen {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+}
+
 /**
  * This injects any component classes registered by plugins.
  */
@@ -102,6 +107,10 @@ a {
 	@apply bg-blue-500 text-white;
     }
     
+}
+
+.content {
+    max-width: 1400px;
 }
 
 .prose {

@@ -3,14 +3,15 @@ description = "Default layout"
 <!DOCTYPE html>
 <html class="h-full" lang="{{ this.theme.meta_lang }}">
   <head>
-		<!-- Google Tag Manager -->
-		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-		})(window,document,'script','dataLayer','GTM-5ZD6S68');</script>
-		<!-- End Google Tag Manager -->
-		
+    <!-- Google Tag Manager -->
+    <script>
+     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+						   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+											     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+											       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+     })(window,document,'script','dataLayer','GTM-5ZD6S68');</script>
+    <!-- End Google Tag Manager -->
+    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -25,9 +26,9 @@ description = "Default layout"
     <meta property="og:url" content="{{ ''|page }}">
     <meta property="og:description" content="{{ description }}">
 
-		{% if not metaImage %}
-		{% set metaImage = this.theme.meta_image %}
-		{% endif %}
+    {% if not metaImage %}
+    {% set metaImage = this.theme.meta_image %}
+    {% endif %}
 
     {% if metaImage %}
     <meta property="og:image" content="{{ metaImage }}">
@@ -41,29 +42,29 @@ description = "Default layout"
     {% endif %}
 
     {% if this.theme.meta_icon %}
-		<link rel="icon" type="image/png" sizes="16x16" href="{{this.theme.meta_icon}}" />
-		{% endif %}
+    <link rel="icon" type="image/png" sizes="16x16" href="{{this.theme.meta_icon}}" />
+    {% endif %}
 
-		<link rel="stylesheet" href="{{ 'assets/public/css/app.css'|theme }}">
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-		{% styles %}
+    <link rel="stylesheet" href="{{ 'assets/public/css/app.css'|theme }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    {% styles %}
   </head>
-	<body class="h-full overflow-y-auto bg-gray-200">
-		<!-- Google Tag Manager (noscript) -->
-		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5ZD6S68"
-		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-		<!-- End Google Tag Manager (noscript) -->
+  <body class="h-full overflow-y-auto bg-gray-200">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5ZD6S68"
+		      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
-		<div class="mx-auto h-full" >
+    <div class="mx-auto relative h-full" >
 
-			<div>
-				{% page %}
-			</div>
-			
-			<script src="{{ 'assets/public/js/app.js'|theme }}"></script>
-			<script src="https://polyfill.io/v3/polyfill.min.js?features=Element.prototype.scrollIntoView"></script>
+      <div class="h-full">
+	{% page %}
+      </div>
+      
+      <script src="{{ 'assets/public/js/app.js'|theme }}"></script>
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=Element.prototype.scrollIntoView"></script>
 
-			{{ scripts }}
+      {{ scripts }}
 
   </body>
 </html>
