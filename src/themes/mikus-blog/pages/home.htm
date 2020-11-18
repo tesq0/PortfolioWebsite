@@ -125,38 +125,4 @@ pageNumber = "{{ :page }}"
 <div class="min-h-screen relative"></div>
 
 <script type="text/javascript" src="themes/mikus-blog/assets/public/js/matrix-effect.js"></script>
-<script>
-
- var showStart = true;
- var showFooter = false;
- 
- function scrollToContent() {
-   document.getElementById('content').scrollIntoView({ 
-     behavior: 'smooth' 
-   });
- }
-
- function onScroll(event) {
-   var el = event.target.scrollingElement;
-   if (el.scrollTop > window.innerHeight) {
-     if (showFooter == false) {
-       showStart = false;
-       showFooter = true;
-     }
-   }
-   else {
-     if (showFooter == true) {
-       showStart = true;
-       showFooter = false;
-     }
-   }
-
-   document.getElementById('start').style.display = showStart ? null : "none";
-   document.getElementById('footer').style.display = showFooter ? null : "none";
-
- }
-
- document.addEventListener("scroll", onScroll);
- document.onload = onScroll;
- 
-</script>
+<script type="text/javascript" src="themes/mikus-blog/assets/public/js/home.js"></script>
