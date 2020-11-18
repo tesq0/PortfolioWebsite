@@ -15,39 +15,39 @@
  * See: https://github.com/laravel-frontend-presets/tall/issues/7
  */
 input:invalid, textarea:invalid, select:invalid {
-		box-shadow: none;
+    box-shadow: none;
 }
 
 h1 {
-		@apply text-4xl;
+    @apply text-4xl;
 }
 
 h2 {
-		@apply text-2xl;
+    @apply text-2xl;
 }
 
 h3 {
-		@apply text-lg;
+    @apply text-lg;
 }
 
 @screen md {
-		h1 {
-				@apply text-5xl;
-		}
-		h2 {
-				@apply text-3xl;
-		}
-		h3 {
-				@apply text-xl;
-		}
+    h1 {
+	@apply text-5xl;
+    }
+    h2 {
+	@apply text-3xl;
+    }
+    h3 {
+	@apply text-xl;
+    }
 }
 
 a {
-		@apply text-blue-600 no-underline;
-		&:hover
-		{
-				@apply underline text-secondary-600;
-		}
+    @apply text-blue-600 no-underline;
+    &:hover
+    {
+	@apply underline text-secondary-600;
+    }
 }
 
 /**
@@ -56,56 +56,56 @@ a {
 @tailwind components;
 
 .link-blank {
-		@apply text-current;
-		&:hover {
-				@apply no-underline text-current;
-		}
+    @apply text-current;
+    &:hover {
+	@apply no-underline text-current;
+    }
 }
 
 .link {
-		&-black {
-				@apply text-black;
-				&:hover {
-						@apply text-black;
-				}
-		}
-		&-gray {
-				@apply text-gray-700 transition-colors duration-300 ease-in-out;
-				&:hover {
-						@apply text-black;
-				}
-		}
-		&-white {
-				@apply text-white;
-				&:hover {
-						@apply text-white;
-				}
-		}
-		
+    &-black {
+	@apply text-black;
+	&:hover {
+	    @apply text-black;
+	}
+    }
+    &-gray {
+	@apply text-gray-700 transition-colors duration-300 ease-in-out;
+	&:hover {
+	    @apply text-black;
+	}
+    }
+    &-white {
+	@apply text-white;
+	&:hover {
+	    @apply text-white;
+	}
+    }
+    
 }
 
 .pagination {
 
-		@apply flex;
+    @apply flex;
 
-		li > a, li > span {
+    li > a, li > span {
 
-				@apply text-center block w-8 h-8 border pt-px;
-				
-		}
+	@apply text-center block w-8 h-8 border pt-px;
+	
+    }
 
-		li:not(:last-child) {
-				@apply mr-2;
-		}
+    li:not(:last-child) {
+	@apply mr-2;
+    }
 
-		li.active > span {
-				@apply bg-blue-500 text-white;
-		}
-		
+    li.active > span {
+	@apply bg-blue-500 text-white;
+    }
+    
 }
 
 .prose {
-		max-width: 100%;
+    max-width: 100%;
 }
 
 /**
