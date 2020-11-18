@@ -13,7 +13,7 @@ categoryPage = "blog/tag"
 postPage = "blog/post"
 ==
 <?php
-function onEnd()
+  function onEnd()
 {
   if (isset($this['category'])) {
     $this->page->title = $this->category->name;
@@ -27,9 +27,9 @@ function onEnd()
 ==
 
 <div class="flex flex-col items-center text-center mb-2">
-	<h2 class="font-bold">
-		Blog posts in "{{ this.page.title }}" 
-	</h2>
+  <h2 class="font-bold">
+    Blog posts in "{{ this.page.title }}" 
+  </h2>
 </div>
 
 {% partial 'blog/blogPostsList' %}

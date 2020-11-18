@@ -11,9 +11,9 @@ displayColumn = "title"
 notFoundMessage = "Project not found"
 ==
 <?php
-function onEnd()
+  function onEnd()
 {
-	$this["project"] = $this->projectDetails->record;
+  $this["project"] = $this->projectDetails->record;
   if (isset($this['project'])) {
     $this->page->title = $this->project->title;
     $this->page->description = $this->project->short_description;
@@ -33,20 +33,20 @@ function onEnd()
 {% if record %}
 
 <div class="flex flex-col items-center text-center">
-	<h2 class="font-bold" itemprop="headline">{{ attribute(record, displayColumn) }}</h2>
-	{% if project.short_description %}
-	<p class="my-2" itemprop="description">{{ project.short_description }}</p>
-	{% endif %}
+  <h2 class="font-bold" itemprop="headline">{{ attribute(record, displayColumn) }}</h2>
+  {% if project.short_description %}
+  <p class="my-2" itemprop="description">{{ project.short_description }}</p>
+  {% endif %}
 </div>
 
 <article class="mt-2 mx-auto prose lg:prose-xl bg-white rounded shadow py-4 px-8">
-	
-	<div class="my-4">
-		{% if project.description %}
-		{{ project.description|md }}
-		{% endif %}
+  
+  <div class="my-4">
+    {% if project.description %}
+    {{ project.description|md }}
+    {% endif %}
   </div>
-	
+  
 </article>
 
 {% else %}

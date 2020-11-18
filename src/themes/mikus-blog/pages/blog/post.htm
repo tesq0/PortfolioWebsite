@@ -8,7 +8,7 @@ slug = "{{ :slug }}"
 categoryPage = "blog/tag"
 ==
 <?php
-function onEnd()
+  function onEnd()
 {
   if (isset($this['post'])) {
     $this->page->title = $this->post->title;
@@ -27,77 +27,77 @@ function onEnd()
 {% set post = blogPost.post %}
 
 <div class="flex flex-col items-center text-center">
-	<h2 class="font-bold" itemprop="headline">{{ post.title }}</h2>
+  <h2 class="font-bold" itemprop="headline">{{ post.title }}</h2>
 
-	<p class="my-2">
-		Posted
-		{% if post.categories.count %} in
-		<span itemprop="keywords">
-			{% for category in post.categories %}
-			<a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
-			{% endfor %}
-		</span>
-		{% endif %}
-		on <time itemprop="datePublished" datetime="{{ post.published_at|date('Y-m-d') }}">{{ post.published_at|date('M d, Y') }}</time>
-		<!-- by <span itemprop="author">{{ post.user.full_name }}</span> -->
-	</p>
-	
+  <p class="my-2">
+    Posted
+    {% if post.categories.count %} in
+    <span itemprop="keywords">
+      {% for category in post.categories %}
+      <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+      {% endfor %}
+    </span>
+    {% endif %}
+    on <time itemprop="datePublished" datetime="{{ post.published_at|date('Y-m-d') }}">{{ post.published_at|date('M d, Y') }}</time>
+    <!-- by <span itemprop="author">{{ post.user.full_name }}</span> -->
+  </p>
+  
 </div>
 
 <article class="mt-2 prose lg:prose-xl mx-auto bg-white rounded shadow py-4 px-8" itemscope itemtype="https://schema.org/BlogPosting">
 
   <header class="">
 
-		<div class="w-full">
-			{% if post.featured_images.count >= 1 %}
-			<div class="flex justify-start items-center w-full mt-4">
-				{% for image in post.featured_images %}
+    <div class="w-full">
+      {% if post.featured_images.count >= 1 %}
+      <div class="flex justify-start items-center w-full mt-4">
+	{% for image in post.featured_images %}
 
-				<img class="" src="{{ image.path|app }}" alt="{{ image.description }}" itemprop="image">
+	<img class="" src="{{ image.path|app }}" alt="{{ image.description }}" itemprop="image">
 
-				{% endfor %}
-			</div>
-			{% endif %}
+	{% endfor %}
+      </div>
+      {% endif %}
 
-		</div>
-		
-		
+    </div>
+    
+    
   </header>
 
-	{% if post.featured_images.count >= 1 %}
-	<hr>
-	{% endif %}
+  {% if post.featured_images.count >= 1 %}
+  <hr>
+  {% endif %}
 
-	<div class="my-4 prose lg:prose-xl" itemprop="articleBody">
+  <div class="my-4 prose lg:prose-xl" itemprop="articleBody">
     {{ post.content_html|md }}
   </div>
 
-	<!--
-	<footer class="">
+  <!--
+       <footer class="">
 
-    <div class="">
+       <div class="">
 
-      <span class="">Share this post:</span>
+       <span class="">Share this post:</span>
 
-      {% set url = ''|page|url_encode %}
-      {% set title = post.title|url_encode %}
+       {% set url = ''|page|url_encode %}
+       {% set title = post.title|url_encode %}
 
-      {% set social = [
-        [ 'facebook',    'Facebook',    'https://www.facebook.com/sharer/sharer.php?u=' ~ url],
-        [ 'twitter',     'Twitter',     'https://twitter.com/home?status=' ~ url],
-        [ 'reddit',      'Reddit',      'https://reddit.com/submit?url=' ~ url ~ '&amp;title=' ~ title],
-        [ 'linkedin',    'LinkedIn',    'https://www.linkedin.com/shareArticle?url=' ~ url ~ '&amp;mini=true&amp;title=' ~ title ~ '&amp;summary=' ~ post.excerpt|url_encode ~ '&amp;source=' ~ url],
-      ] %}
+       {% set social = [
+       [ 'facebook',    'Facebook',    'https://www.facebook.com/sharer/sharer.php?u=' ~ url],
+       [ 'twitter',     'Twitter',     'https://twitter.com/home?status=' ~ url],
+       [ 'reddit',      'Reddit',      'https://reddit.com/submit?url=' ~ url ~ '&amp;title=' ~ title],
+       [ 'linkedin',    'LinkedIn',    'https://www.linkedin.com/shareArticle?url=' ~ url ~ '&amp;mini=true&amp;title=' ~ title ~ '&amp;summary=' ~ post.excerpt|url_encode ~ '&amp;source=' ~ url],
+       ] %}
 
-      {% for n in social %}
+       {% for n in social %}
 
-        <a class="no-underline text-2xl inline-block text-center w-4 h-4 text-{{ n[0] }} fa-{{ n[0] }}" href="{{ n[2]|raw }}" target="_blank" title="Share on {{ n[1] }}" aria-label="Share on {{ n[1] }}" role="button"></a>
+       <a class="no-underline text-2xl inline-block text-center w-4 h-4 text-{{ n[0] }} fa-{{ n[0] }}" href="{{ n[2]|raw }}" target="_blank" title="Share on {{ n[1] }}" aria-label="Share on {{ n[1] }}" role="button"></a>
 
-      {% endfor %}
+       {% endfor %}
 
-    </div>
+       </div>
 
-  </footer>
-	-->
+       </footer>
+  -->
 
 </article>
