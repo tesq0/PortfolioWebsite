@@ -108,8 +108,8 @@ var drawMatrix = function drawMatrix() {
     var columnMatrix = getOrInitColumnMatrix(col);
 
     var _columnMatrix$getData = columnMatrix.getData(),
-        rowOffset = _columnMatrix$getData.rowOffset,
-        characters = _columnMatrix$getData.characters;
+      rowOffset = _columnMatrix$getData.rowOffset,
+      characters = _columnMatrix$getData.characters;
 
     var moveBy = deltaTime * MOVE_SPEED;
     columnMatrix.move(moveBy);
@@ -126,10 +126,10 @@ var drawMatrix = function drawMatrix() {
       const rectWidth = COLUMN_PX_WIDTH - padding;
       const rectHeight = ROW_PX_HEIGHT - padding;
       const centerOut = padding / 2;
-      	 ctx.fillRect(
-      	 xPos + (centerOut),
-      	 yPos + (centerOut),
-      	 rectWidth , rectHeight
+         ctx.fillRect(
+         xPos + (centerOut),
+         yPos + (centerOut),
+         rectWidth , rectHeight
        );
       */
 

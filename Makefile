@@ -21,4 +21,7 @@ status:
 shell:
 	${CD} && ${COMPOSE_CMD} exec backend sh
 
+watch:
+	${CD} && ${COMPOSE_CMD} exec backend sh -c 'cd themes/mikus-blog && npm run watch'
+
 
