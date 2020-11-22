@@ -30,12 +30,12 @@ function makeCharacters() {
 
 }
 //['中', '文', '简', '繁', '体', '转', '换', '器', '支', '持', '地', '方', '惯', '用', '词', '汇', '替', '换'];
-const CHARACTERS = makeCharacters();
+const CHARACTERS = ['0', '1'];  // makeCharacters();
 
 const matrix = [];
 
 function randomNumber(min, max) {
-  return Math.random() * (max - min) + min;
+  return Math.random() * (max - min + 1) + min;
 }
 
 function randomInt(min, max) {
@@ -105,7 +105,7 @@ class AnimatedChars {
 
     for (let i = 0; i < characterCount; i++) {
 
-      let characterIdx = randomInt(0, CHARACTERS.length);
+      let characterIdx = randomInt(0, CHARACTERS.length - 1);
       let character = CHARACTERS[characterIdx];
       characters.push(character);
 
