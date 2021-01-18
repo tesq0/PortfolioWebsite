@@ -1,0 +1,9 @@
+[submodule "src/plugins/rainlab/translate"]
+	path = src/plugins/rainlab/translate
+	url = https://github.com/rainlab/translate-plugin.git
+[submodule "src/plugins/rainlab/builder"]
+	path = src/plugins/rainlab/builder
+	url = https://github.com/rainlab/builder-plugin.git
+[submodule "src/plugins/rainlab/blog"]
+	path = src/plugins/rainlab/blog
+	url = https://github.com/rainlab/blog-plugin.git
