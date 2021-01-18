@@ -13,13 +13,7 @@ networks:
 
 services:
   backend:
-    build:
-      context: ./backend
-      args:
-        - UID=${BACKEND_UID}
-        - GID=${BACKEND_GID}
-        - OCTOBER_VERSION=${OCTOBER_VERSION}
-        - OCTOBER_THEME=${OCTOBER_THEME}
+    image: mikus-blog_backend
     volumes:
       - ../src/plugins:/var/www/html/plugins
       - ../src/themes/mikus-blog:/var/www/html/themes/mikus-blog
