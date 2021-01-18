@@ -10,7 +10,7 @@
 
 ```
 cp ./docker/env-example ./docker/.env
-cp ./src/.env-example ./src/.env
+cp ./config/.env-example ./config/.env
 ```
 And fill out the missing variables these files
 
