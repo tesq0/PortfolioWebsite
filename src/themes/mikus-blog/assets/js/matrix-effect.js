@@ -101,7 +101,7 @@ class AnimatedChars {
 
     const rowOffset = yOffset + randomNumber(characterCount / 2, currentMaxRows * 2) * ROW_PX_HEIGHT;
 
-    const opacity = randomNumber(0.1, 1);
+    const opacity = randomNumber(0.1, 0.9);
 
     for (let i = 0; i < characterCount; i++) {
 

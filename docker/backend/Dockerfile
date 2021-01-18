@@ -61,8 +61,7 @@ RUN rm /var/cache/apk/* \
 # BUILD APP
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
-
-ARG CACHE_DATE=2020-03-10
+ARG CACHE_DATE=2020-03-11
 
 # COPY NGINX CONFIG
 COPY config/nginx.conf /etc/nginx/nginx.conf
@@ -91,6 +90,24 @@ USER ${UID}:${GID}
 
 # Add application
 WORKDIR /var/www/html
+
+# Install OctoberCMS
+ARG OCTOBER_VERSION
+RUN echo "Installing OctoberCMS version: ${OCTOBER_VERSION}" &&\
+    git init . &&\
+    git remote add origin https://github.com/octobercms/october.git &&\
+    git fetch origin &&\
+    git checkout ${OCTOBER_VERSION} -b october-${OCTOBER_VERSION} &&\
+    COMPOSER_MEMORY_LIMIT=2G composer install -v
+
+# Config
+RUN php artisan october:env
+
+ARG OCTOBER_THEME
+
+RUN sed -i "s/'activeTheme' => 'demo'/'activeTheme' => '${OCTOBER_THEME}'/g" config/cms.php
+
+RUN chown -R ${UID}.${GID} .
 
 # Expose the port nginx is reachable on
 EXPOSE 8080

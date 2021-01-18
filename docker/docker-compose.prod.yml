@@ -18,10 +18,13 @@ services:
       args:
         - UID=${BACKEND_UID}
         - GID=${BACKEND_GID}
-    # ports:
-    #   - "${BIND_ADDRESS}:1234:8080"
+        - OCTOBER_VERSION=${OCTOBER_VERSION}
+        - OCTOBER_THEME=${OCTOBER_THEME}
     volumes:
-      - ../src:/var/www/html
+      - ../src/plugins:/var/www/html/plugins
+      - ../src/themes/mikus-blog:/var/www/html/themes/mikus-blog
+      - ../config/.env:/var/www/html/.env
+      - ${DATA_PATH_HOST}/storage:/var/www/html/storage
     networks:
       - base
       - traefik

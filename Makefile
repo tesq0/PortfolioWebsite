@@ -6,6 +6,9 @@ COMPOSE_CMD:=docker-compose
 up:
 	${CD} && ${COMPOSE_CMD} up -d
 
+restart:
+	${CD} && ${COMPOSE_CMD} up -d --force-recreate
+
 build:
 	${CD} && ${COMPOSE_CMD} build
 
@@ -20,6 +23,9 @@ status:
 
 shell:
 	${CD} && ${COMPOSE_CMD} exec backend sh
+
+link:
+	${CD} && ${COMPOSE_CMD} exec backend sh -c 'php artisan october:mirror public'
 
 watch:
 	${CD} && ${COMPOSE_CMD} exec backend sh -c 'cd themes/mikus-blog && npm run watch'
